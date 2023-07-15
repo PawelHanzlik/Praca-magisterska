@@ -1,0 +1,91 @@
+{
+  "fullName": "JaninaKowalska",
+  "id": "5097ea80-3895-486c-b8f3-70a6d7db602e",
+  "interests": [
+    {
+      "first": "dive_centre",
+      "second": 0.11618116641671157
+    },
+    {
+      "first": "place_of_worship",
+      "second": 0.09586754704761088
+    },
+    {
+      "first": "marketplace",
+      "second": 0.09519645984178655
+    },
+    {
+      "first": "arts_centre",
+      "second": 0.09356949016507919
+    },
+    {
+      "first": "bar",
+      "second": 0.09218886155930255
+    },
+    {
+      "first": "theme_park",
+      "second": 0.08408470588303874
+    },
+    {
+      "first": "museum",
+      "second": 0.07728646547983813
+    },
+    {
+      "first": "castle",
+      "second": 0.07358739803853968
+    },
+    {
+      "first": "monastery",
+      "second": 0.06868628847860604
+    },
+    {
+      "first": "restaurant",
+      "second": 0.055997476667713715
+    },
+    {
+      "first": "cinema",
+      "second": 0.05198926240129543
+    },
+    {
+      "first": "monument",
+      "second": 0.04654867364153625
+    },
+    {
+      "first": "ruins",
+      "second": 0.029077924840000633
+    },
+    {
+      "first": "viewpoint",
+      "second": 0.01973827953894064
+    }
+  ],
+  "materialStatus": "D",
+  "prefferedTransportModes": [
+    {
+      "first": "foot-walking",
+      "second": 0.4352788603766395
+    },
+    {
+      "first": "cycling-road",
+      "second": 0.4330172475775286
+    },
+    {
+      "first": "cycling-regular",
+      "second": 0.13170389204583197
+    }
+  ],
+  "preferences": {
+    "activityTime": "MORNING",
+    "averageNumberOfPOIs": 9,
+    "spendTimeModifier": 1.1951744793620518,
+    "walkingSpeedModifier": 1.0981116374916957,
+    "interestFactor": 0.16353909118832266,
+    "priceFactor": 0.3921066249649082,
+    "distanceFactor": 0.4443542838467691
+  },
+  "placeOfDeparture": {
+    "lat": 50.064786,
+    "lon": 19.845023
+  },
+  "maxRange": 3879.495041550508
+}

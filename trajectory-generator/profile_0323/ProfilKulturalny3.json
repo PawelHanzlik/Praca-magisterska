@@ -1,0 +1,95 @@
+{
+  "fullName": "ProfilKulturalny3",
+  "id": "pk-03",
+  "interests": [
+    {
+      "first": "place_of_worship",
+      "second": 0.1
+    },
+    {
+      "first": "church",
+      "second": 0.1
+    },
+    {
+      "first": "synagogue",
+      "second": 0.1
+    },
+    {
+      "first": "arts_centre",
+      "second": 0.1
+    },
+    {
+      "first": "town_square",
+      "second": 0.1
+    },
+    {
+      "first": "art_gallery",
+      "second": 0.1
+    },
+    {
+      "first": "cemetery",
+      "second": 0.1
+    },
+    {
+      "first": "museum",
+      "second": 0.2
+    },
+    {
+      "first": "castle",
+      "second": 0.1
+    },
+    {
+      "first": "memorial",
+      "second": 0.1
+    },
+    {
+      "first": "park",
+      "second": 0.1
+    },
+    {
+      "first": "restaurant",
+      "second": 0.2
+    },
+    {
+      "first": "monument",
+      "second": 0.2
+    },
+    {
+      "first": "ruins",
+      "second": 0.2
+    },
+    {
+      "first": "viewpoint",
+      "second": 0.2
+    },
+    {
+      "first": "jewelry_store",
+      "second": 0.2
+    }
+  ],
+  "materialStatus": "C",
+  "prefferedTransportModes": [
+    {
+      "first": "car",
+      "second": 0.7
+    },
+    {
+      "first": "walking",
+      "second": 0.3
+    }
+  ],
+  "preferences": {
+    "activityTime": "MIDDAY",
+    "averageNumberOfPOIs": 9,
+    "spendTimeModifier": 1.1951744793620518,
+    "walkingSpeedModifier": 1.0981116374916957,
+    "interestFactor": 0.16353909118832266,
+    "priceFactor": 0.3921066249649082,
+    "distanceFactor": 0.4443542838467691
+  },
+  "placeOfDeparture": {
+    "lat": 48.20849,
+    "lon": 16.37214
+  },
+  "maxRange": 3879.495041550508
+}

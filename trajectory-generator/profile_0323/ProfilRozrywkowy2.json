@@ -1,0 +1,87 @@
+{
+  "fullName": "ProfilRozrywkowy2",
+  "id": "pr-02",
+  "interests": [
+    {
+      "first": "aquarium",
+      "second": 0.07
+    },
+    {
+      "first": "cinema",
+      "second": 0.07
+    },
+    {
+      "first": "dive_centre",
+      "second": 0.07
+    },
+    {
+      "first": "bar",
+      "second": 0.15
+    },
+    {
+      "first": "casino",
+      "second": 0.12
+    },
+    {
+      "first": "beauty_salon",
+      "second": 0.07
+    },
+    {
+      "first": "bowling",
+      "second": 0.07
+    },
+    {
+      "first": "zoo",
+      "second": 0.07
+    },
+    {
+      "first": "theme_park",
+      "second": 0.12
+    },
+    {
+      "first": "night_club",
+      "second": 0.07
+    },
+    {
+      "first": "stadion",
+      "second": 0.07
+    },
+    {
+      "first": "store",
+      "second": 0.07
+    },
+    {
+      "first": "spa",
+      "second": 0.07
+    }
+  ],
+  "materialStatus": "C",
+  "prefferedTransportModes": [
+    {
+      "first": "driving-car",
+      "second": 0.2
+    },
+    {
+      "first": "foot-walking",
+      "second": 0.4
+    },
+    {
+      "first": "cycling-regular",
+      "second": 0.4
+    }
+  ],
+  "preferences": {
+    "activityTime": "MORNING",
+    "averageNumberOfPOIs": 9,
+    "spendTimeModifier": 1.1951744793620518,
+    "walkingSpeedModifier": 1.0981116374916957,
+    "interestFactor": 0.16353909118832266,
+    "priceFactor": 0.3921066249649082,
+    "distanceFactor": 0.4443542838467691
+  },
+  "placeOfDeparture": {
+    "lat": 48.12098,
+    "lon": 16.56233
+  },
+  "maxRange": 3879.495041550508
+}

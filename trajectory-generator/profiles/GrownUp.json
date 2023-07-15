@@ -1,0 +1,59 @@
+{
+    "materialStatus": "E",
+    "preferences": {
+        "spendTimeModifier": 2.34,
+        "averageNumberOfPOIs": 8,
+        "distanceFactor": 0.79,
+        "activityTime": "MORNING",
+        "interestFactor": 0.23,
+        "priceFactor": 0.56,
+        "walkingSpeedModifier": 1.12
+    },
+    "placeOfDeparture": {
+        "lon": 19.9611,
+        "lat": 50.0441
+    },
+    "fullName": "GrownUp",
+    "maxRange": 4000,
+    "id": "pr-02",
+    "interests": [
+        {
+            "first": "store",
+            "second": 0.15
+        },
+        {
+            "first": "cinema",
+            "second": 0.1
+        },
+        {
+            "first": "restaurant",
+            "second": 0.1
+        },
+        {
+            "first": "gym",
+            "second": 0.08
+        },
+        {
+            "first": "church",
+            "second": 0.1
+        },
+        {
+            "first": "company",
+            "second": 0.4
+        },
+        {
+            "first": "house",
+            "second": 0.4
+        }
+    ],
+    "prefferedTransportModes": [
+        {
+            "first": "driving-car",
+            "second": 0.8
+        },
+        {
+            "first": "foot-walking",
+            "second": 0.2
+        }
+    ]
+}
