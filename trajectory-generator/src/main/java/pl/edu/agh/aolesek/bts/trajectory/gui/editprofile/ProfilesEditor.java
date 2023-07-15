@@ -44,7 +44,6 @@ public class ProfilesEditor extends javax.swing.JFrame {
         dtm2 = (DefaultTableModel)jTable2.getModel();
         this.fileName = fileName;
         this.operationName = operationName;
-        System.out.println(operationName);
         if(operationName.equals("create")){
             //do nothing while profile is being created
         }

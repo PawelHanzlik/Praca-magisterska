@@ -1,0 +1,91 @@
+{
+    "materialStatus": "E",
+    "preferences": {
+        "spendTimeModifier": 1.17,
+        "averageNumberOfPOIs": 8,
+        "distanceFactor": 0.27,
+        "activityTime": "MORNING",
+        "interestFactor": 0.52,
+        "priceFactor": 0.21,
+        "walkingSpeedModifier": 1.09
+    },
+    "placeOfDeparture": {
+        "lon": 19.9611,
+        "lat": 50.0441
+    },
+    "fullName": "Teenager1",
+    "maxRange": 4000,
+    "id": "pr-01",
+    "interests": [
+        {
+            "first": "house",
+            "second": 0.28
+        },
+        {
+            "first": "school",
+            "second": 0.24
+        },
+        {
+            "first": "gym",
+            "second": 0.08
+        },
+        {
+            "first": "shopping_centre",
+            "second": 0.07
+        },
+        {
+            "first": "shop",
+            "second": 0.06
+        },
+        {
+            "first": "stadium",
+            "second": 0.05
+        },
+        {
+            "first": "park",
+            "second": 0.05
+        },
+        {
+            "first": "cafe",
+            "second": 0.04
+        },
+        {
+            "first": "pitch",
+            "second": 0.03
+        },
+        {
+            "first": "marketplace",
+            "second": 0.03
+        },
+        {
+            "first": "church",
+            "second": 0.02
+        },
+        {
+            "first": "cinema",
+            "second": 0.02
+        },
+        {
+            "first": "restaurant",
+            "second": 0.02
+        },
+        {
+            "first": "hospital",
+            "second": 0.01
+        }
+    ],
+    "prefferedTransportModes": [
+        {
+            "first": "walking-foot",
+            "second": 0.5
+        },
+        {
+            "first": "driving-car",
+            "second": 0.3
+        },
+        {
+            "first": "riding-bike",
+            "second": 0.2
+        }
+    ]
+}

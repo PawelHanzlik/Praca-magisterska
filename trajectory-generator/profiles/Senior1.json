@@ -1,0 +1,21 @@
+{
+    "materialStatus": "E",
+    "preferences": {
+        "spendTimeModifier": 5,
+        "averageNumberOfPOIs": 5,
+        "distanceFactor": 5,
+        "activityTime": "MORNING",
+        "interestFactor": 5,
+        "priceFactor": 5,
+        "walkingSpeedModifier": 5
+    },
+    "placeOfDeparture": {
+        "lon": 5,
+        "lat": 5
+    },
+    "fullName": "Senior1",
+    "maxRange": 5,
+    "id": "pr-09",
+    "interests": [],
+    "prefferedTransportModes": []
+}
