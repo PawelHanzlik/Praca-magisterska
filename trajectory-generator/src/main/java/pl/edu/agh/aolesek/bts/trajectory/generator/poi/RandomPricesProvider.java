@@ -1,10 +1,10 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi;
 
+import pl.edu.agh.aolesek.bts.trajectory.generator.model.Level;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
-import pl.edu.agh.aolesek.bts.trajectory.generator.model.Level;
 
 /**
  * Provides random prices for GIS providers that do not provide info about average prices of POIs.

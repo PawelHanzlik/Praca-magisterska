@@ -4,7 +4,8 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 //nowa klasa
 //wczytywanie punktów początkowych z pliku

@@ -1,23 +1,17 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.utils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Set;
+import com.google.common.collect.Sets;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
+
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
-import com.google.common.collect.Sets;
-
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 
 //wyznaczanie losowych wartości
 public class RandomUtils {

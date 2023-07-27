@@ -1,30 +1,8 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.persistence;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
-
 import com.google.inject.Inject;
-
 import lombok.extern.log4j.Log4j2;
-import mil.nga.sf.geojson.Feature;
-import mil.nga.sf.geojson.FeatureCollection;
-import mil.nga.sf.geojson.FeatureConverter;
-import mil.nga.sf.geojson.LineString;
-import mil.nga.sf.geojson.Position;
+import mil.nga.sf.geojson.*;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
@@ -33,6 +11,13 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.ProfileLogger;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePart;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
 
 //generowanie pliku geojson
 @Log4j2

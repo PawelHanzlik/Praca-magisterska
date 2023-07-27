@@ -1,5 +1,8 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.app;
 
+import lombok.Data;
+import lombok.extern.log4j.Log4j2;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,9 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import lombok.Data;
-import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Data

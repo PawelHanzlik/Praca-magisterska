@@ -1,14 +1,8 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.utils;
 
-import static java.lang.Math.PI;
-import static java.lang.Math.asin;
-import static java.lang.Math.atan2;
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
-import static java.lang.Math.sqrt;
-import static java.lang.Math.toRadians;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
+
+import static java.lang.Math.*;
 
 //wyznaczanie odległości
 public final class GeoUtils {

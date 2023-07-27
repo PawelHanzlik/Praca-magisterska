@@ -1,14 +1,13 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.google;
 
-import java.util.Objects;
-
 import com.google.inject.Inject;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.google.GooglePoiAdapter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IOpeningHoursSupplier;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.PoiPlanner;
+
+import java.util.Objects;
 
 //wyznaczanie średnich prędkości dla środków transportu obsługiwanych przez Google Maps API
 public class GooglePoiPlanner extends PoiPlanner<GooglePoiAdapter> {

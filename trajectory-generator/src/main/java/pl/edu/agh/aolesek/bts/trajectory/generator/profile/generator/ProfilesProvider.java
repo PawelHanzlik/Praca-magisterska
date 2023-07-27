@@ -1,6 +1,15 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator;
 
-import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.NUMBER_OF_GENERATED_PROFILES;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.inject.Inject;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.io.FileUtils;
+import pl.edu.agh.aolesek.bts.trajectory.analysis.ResultReader.InterfaceSerializer;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
+import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
+import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.Profile;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,26 +17,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.commons.io.FileUtils;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.inject.Inject;
-
-import lombok.extern.log4j.Log4j2;
-import pl.edu.agh.aolesek.bts.trajectory.analysis.ResultReader.InterfaceSerializer;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
-import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
-import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.Profile;
+import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.NUMBER_OF_GENERATED_PROFILES;
 
 //przy wykorzystaniu interfejsu IProfilesProvider dostarcza profile utworzone przez użytkownika (domyślnie z folderu profiles)
 // i zleca wygenerowanie określonej w konfiguracji liczby losowych profili
@@ -64,7 +58,10 @@ public class ProfilesProvider implements IProfilesProvider {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(nextFile)))) {
                 log.info("Parsing profile " + nextFile.getName());
                 IProfile profile = gson.fromJson(reader, IProfile.class);
-                profiles.add(profile);
+                System.out.println(profile.getFullName());
+                if (profile.getFullName().equals("Teenager2")) {
+                    profiles.add(profile);
+                }
             } catch (Exception e) {
                 log.error("Unable to parse profile " + nextFile.getName(), e);
             }

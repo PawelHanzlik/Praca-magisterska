@@ -1,14 +1,6 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.google.data.provider;
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.BiFunction;
-
 import com.google.inject.Inject;
-
 import lombok.Data;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
@@ -23,6 +15,13 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.RandomPricesProvider;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.google.PlacesApi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IOpeningHoursSupplier;
 import pl.edu.agh.aolesek.bts.trajectory.generator.retrofit.RetrofitClientFactory;
+
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.BiFunction;
 
 //obsługa informacji od Google
 public class GoogleAdditionalDataProvider implements IPricesProvider, ISpentTimeProvider, IOpeningHoursSupplier {

@@ -1,11 +1,11 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.osm;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import lombok.RequiredArgsConstructor;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.osm.model.OsmPoiModel.OsmModelElement;
+
+import java.util.HashMap;
+import java.util.Map;
 
 //zbiór metod dla generatora
 @RequiredArgsConstructor

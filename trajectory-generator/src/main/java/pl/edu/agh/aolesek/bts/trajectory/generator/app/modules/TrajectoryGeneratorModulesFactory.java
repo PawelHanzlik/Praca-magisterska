@@ -1,12 +1,12 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.app.modules;
 
-import java.util.Collections;
-import java.util.Set;
-
 import lombok.extern.log4j.Log4j2;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.ErrorHandler;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
+
+import java.util.Collections;
+import java.util.Set;
 
 //moduły zajmują się zagnieżdżaniem interfejsów w klasach w singletonie
 @Log4j2

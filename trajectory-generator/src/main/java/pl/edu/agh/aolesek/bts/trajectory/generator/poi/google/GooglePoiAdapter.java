@@ -1,13 +1,12 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.google;
 
-import java.util.List;
-import java.util.Map;
-
 import com.google.common.collect.ImmutableMap;
-
 import lombok.RequiredArgsConstructor;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.google.GooglePoiModel.GoogleModelElement;
+
+import java.util.List;
+import java.util.Map;
 
 //zbiór metod dla generatora
 @RequiredArgsConstructor

@@ -1,9 +1,9 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.osm.model;
 
+import lombok.Data;
+
 import java.util.List;
 import java.util.Map;
-
-import lombok.Data;
 
 //struktura zawierająca informacje na temat Poi
 @Data

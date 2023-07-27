@@ -1,13 +1,6 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.persistence;
 
-import java.io.PrintWriter;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 import com.google.inject.Inject;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
@@ -15,6 +8,12 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.ProfileLogger;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
+
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class CsvTrajectoryResultHandler extends AbstractFileResultHandler {
 

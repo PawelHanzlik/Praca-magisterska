@@ -16,7 +16,6 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender.DummyRecommen
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender.IPoiRecommender;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.IPoiRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.google.DirectionsRouter;
-import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.ors.OpenRouteServicePoiRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.IProfileGenerator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.IProfilesProvider;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.ProfilesProvider;

@@ -1,11 +1,11 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator;
 
+import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
+
 import java.util.Collection;
 import java.util.Map;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
-
-import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 
 //sprawdza poprawność wygenerowanych profilów
 public class ProfileValidator {

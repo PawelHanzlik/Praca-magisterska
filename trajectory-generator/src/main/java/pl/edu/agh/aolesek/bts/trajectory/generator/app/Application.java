@@ -1,25 +1,17 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.app;
 
-import java.time.Duration;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
-
-import com.google.inject.Guice;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.Module;
-
 import lombok.extern.log4j.Log4j2;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.modules.AbstractTrajectoryGeneratorModule;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.modules.TrajectoryGeneratorModulesFactory;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.TrajectoryGenerator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.persistence.IResultHandler;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender.IPoiRecommender;
-import pl.edu.agh.aolesek.bts.trajectory.generator.retrofit.RetrofitClientFactory;
 import pl.edu.agh.aolesek.bts.trajectory.generator.validator.ITrajectoryValidator;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Set;
 
 @Log4j2
 public class Application {

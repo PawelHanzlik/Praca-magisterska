@@ -1,7 +1,7 @@
 {
     "materialStatus": "E",
     "preferences": {
-        "spendTimeModifier": 1.17,
+        "spendTimeModifier": 1,
         "averageNumberOfPOIs": 8,
         "distanceFactor": 0.27,
         "activityTime": "MORNING",
@@ -76,7 +76,7 @@
     ],
     "prefferedTransportModes": [
         {
-            "first": "walking-foot",
+            "first": "foot-walking",
             "second": 0.5
         },
         {
@@ -84,7 +84,7 @@
             "second": 0.3
         },
         {
-            "first": "riding-bike",
+            "first": "cycling-regular",
             "second": 0.2
         }
     ]

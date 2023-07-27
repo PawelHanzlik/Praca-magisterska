@@ -1,14 +1,13 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.model.profile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.extern.log4j.Log4j2;
+
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.extern.log4j.Log4j2;
 
 //tworzenie w oparciu o Log4j2 loga opisującego działanie profilu
 @Log4j2

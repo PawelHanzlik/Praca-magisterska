@@ -1,17 +1,6 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.router;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
-
 import com.google.common.collect.ImmutableMap;
-
 import mil.nga.sf.geojson.LineString;
 import mil.nga.sf.geojson.Position;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
@@ -25,6 +14,11 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePlan;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 //zawiera algorytm wytyczający dokładny przebieg trasy i funkcje pomocnicze konwertujące typy danych oraz sprawdzające występowanie błędów
 public abstract class AbstractRouter implements IPoiRouter {

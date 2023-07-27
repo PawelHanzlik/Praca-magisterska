@@ -5,6 +5,14 @@
  */
 package pl.edu.agh.aolesek.bts.trajectory.gui.editprofile;
 
+import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import pl.edu.agh.aolesek.bts.trajectory.gui.GUIBackend;
+import pl.edu.agh.aolesek.bts.trajectory.gui.Pair;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
@@ -12,13 +20,6 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.util.List;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import org.apache.commons.io.IOUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import pl.edu.agh.aolesek.bts.trajectory.gui.GUIBackend;
-import pl.edu.agh.aolesek.bts.trajectory.gui.Pair;
 
 /**
  *

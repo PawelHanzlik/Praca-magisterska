@@ -1,8 +1,8 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.google.data.provider;
 
-import java.util.List;
-
 import lombok.Data;
+
+import java.util.List;
 
 //struktura z informacjami zwracanymi przez Google
 @Data

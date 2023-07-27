@@ -1,16 +1,15 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.model.trajectory;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
 
 //tworzenie obiektów wchodzących w skład trajektorii
 @Data

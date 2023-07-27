@@ -5,11 +5,13 @@
  */
 package pl.edu.agh.aolesek.bts.trajectory.gui;
 
-import java.awt.Component;
-import java.text.DecimalFormat;
-import java.util.*;
 import javax.swing.*;
-import javax.swing.table.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *

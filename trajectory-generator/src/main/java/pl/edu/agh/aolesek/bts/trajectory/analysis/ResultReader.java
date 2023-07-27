@@ -1,24 +1,7 @@
 package pl.edu.agh.aolesek.bts.trajectory.analysis;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.Profile;
@@ -32,6 +15,16 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePlan;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.RoutePart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.RoutePlan;
+
+import java.io.IOException;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ResultReader {
 

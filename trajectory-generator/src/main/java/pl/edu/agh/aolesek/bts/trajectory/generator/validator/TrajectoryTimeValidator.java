@@ -1,18 +1,18 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.validator;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.ProfileLogger;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 public class TrajectoryTimeValidator implements ITrajectoryValidator {
 

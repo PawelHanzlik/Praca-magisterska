@@ -1,19 +1,6 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Collectors;
-
 import com.google.inject.Inject;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
@@ -25,6 +12,12 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.Poi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 //klasa abstrakcyjna do planowania trasy korzystająca z interfejsu IPoPlanner i instancji interfejsu IOpeningHoursSupplier zwracającego informację
 // o tym czy obiekt jest w danym momencie otwarty. W jej ramach losowana jest godzina rozpoczęcia podróży dla wskazanej w konfiguracji pory dnia.

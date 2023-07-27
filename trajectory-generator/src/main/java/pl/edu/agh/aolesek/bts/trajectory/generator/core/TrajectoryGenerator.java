@@ -1,13 +1,6 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.core;
 
-import java.time.Duration;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
-
 import com.google.inject.Inject;
-
 import lombok.extern.log4j.Log4j2;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.ErrorHandler;
@@ -22,6 +15,12 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IPoiPlanner;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePlan;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.IPoiRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.IProfilesProvider;
+
+import java.time.Duration;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 @Log4j2
 public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator {
@@ -89,10 +88,13 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
         IRoutePlan routePlan = null;
         ITrajectory trajectory = null;
 
+
         try {
             long start = System.currentTimeMillis();
             profileLogger.debug("Generating POIs for profile " + profile.getFullName());
             poisForProfile = poiGenerator.generatePois(profile);
+            System.out.println("KURWAAAAAAAAAAA");
+            System.out.println(poisForProfile);
             profileLogger.debug(String.format("Generated %d POIs in %d ms", poisForProfile.size(), System.currentTimeMillis() - start));
             poiGenerator.logStats();
 

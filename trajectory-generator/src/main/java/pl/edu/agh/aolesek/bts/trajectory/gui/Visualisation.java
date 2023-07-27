@@ -5,10 +5,10 @@
  */
 package pl.edu.agh.aolesek.bts.trajectory.gui;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *

@@ -1,13 +1,13 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.persistence;
 
-import static pl.edu.agh.aolesek.bts.trajectory.generator.utils.TimeUtils.filenameTimestamp;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
+import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 
 import java.io.File;
 import java.util.Collection;
 
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
-import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
+import static pl.edu.agh.aolesek.bts.trajectory.generator.utils.TimeUtils.filenameTimestamp;
 
 public abstract class AbstractResultHandler implements IResultHandler {
 

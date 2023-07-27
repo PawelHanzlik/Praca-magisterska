@@ -1,8 +1,8 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.persistence;
 
-import java.util.Collection;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
+
+import java.util.Collection;
 
 //generowanie wyjścia do konsoli
 public class PrintResultHandler implements IResultHandler {

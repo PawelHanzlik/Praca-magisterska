@@ -1,14 +1,8 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.google;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
-
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.maps.model.EncodedPolyline;
-
 import lombok.Data;
 import mil.nga.sf.geojson.LineString;
 import mil.nga.sf.geojson.Position;
@@ -20,6 +14,11 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.AbstractRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.RoutingForPart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.retrofit.RetrofitClientFactory;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 //klasa wywołująca zapytania, wyznaczająca czas pokonywania odcinka, konwertująca współrzędne geograficzne
 // na typ tekstowy i wypakowująca dane z informacji zwrotnych od API. Zawiera również kilka klas statycznych stanowiących kontenery z danymi

@@ -1,21 +1,6 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.persistence;
 
-import java.io.PrintWriter;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Collectors;
-
 import com.google.inject.Inject;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
@@ -26,6 +11,14 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.AbstractPoiGenerator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
+
+import java.io.PrintWriter;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 //generowanie pliku story
 public class StoryResultHandler extends AbstractFileResultHandler {

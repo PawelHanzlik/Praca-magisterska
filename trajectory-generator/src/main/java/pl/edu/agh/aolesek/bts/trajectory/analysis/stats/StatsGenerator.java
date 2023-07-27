@@ -1,11 +1,5 @@
 package pl.edu.agh.aolesek.bts.trajectory.analysis.stats;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-
 import pl.edu.agh.aolesek.bts.trajectory.analysis.ResultReader;
 import pl.edu.agh.aolesek.bts.trajectory.analysis.stats.provider.IStatsProvider;
 import pl.edu.agh.aolesek.bts.trajectory.analysis.stats.provider.PoiStatsProvider;
@@ -13,6 +7,8 @@ import pl.edu.agh.aolesek.bts.trajectory.analysis.stats.provider.TimeStatsProvid
 import pl.edu.agh.aolesek.bts.trajectory.analysis.stats.provider.TravelStatsProvider;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
+
+import java.util.*;
 
 public class StatsGenerator {
 

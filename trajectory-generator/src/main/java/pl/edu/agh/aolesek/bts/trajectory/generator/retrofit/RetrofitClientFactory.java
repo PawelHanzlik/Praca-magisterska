@@ -1,13 +1,12 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.retrofit;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 //klient URL; moduł do tworzenia połączeń html
 public class RetrofitClientFactory {

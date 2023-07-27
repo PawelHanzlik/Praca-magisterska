@@ -1,18 +1,17 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi;
 
+import com.google.inject.Inject;
+import lombok.extern.log4j.Log4j2;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
+import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
-import com.google.inject.Inject;
-
-import lombok.extern.log4j.Log4j2;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
-import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
 
 //z pliku average\_spent\_minutes\_per\_category.txt wczytywane są średnie czasy jakie ma zajmować pobyt w obiekcie danej kategorii,
 // wykorzystany jest interfejs ISpentTimeProvider

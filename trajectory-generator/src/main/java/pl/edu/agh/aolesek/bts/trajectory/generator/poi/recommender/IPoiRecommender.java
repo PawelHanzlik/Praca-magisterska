@@ -1,13 +1,13 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender;
 
-import java.io.Serializable;
-import java.util.Collection;
-
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
+
+import java.io.Serializable;
+import java.util.Collection;
 
 //interfejs przechowujący metody dziedziczone przez dwie powyższe klasy.
 // Zawiera funkcje do przechowywania Poi, wyzanczania ocen, zatrzymywania działania recommendera i strukturę z wykorzystywanymi zmiennymi

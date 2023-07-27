@@ -1,11 +1,6 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.ors;
 
-import java.io.IOException;
-import java.util.Locale;
-import java.util.Map;
-
 import com.google.inject.Inject;
-
 import mil.nga.sf.geojson.FeatureCollection;
 import mil.nga.sf.geojson.FeatureConverter;
 import mil.nga.sf.geojson.Geometry;
@@ -18,6 +13,10 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.AbstractRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.RoutingForPart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.retrofit.RetrofitClientFactory;
+
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Map;
 
 //klasa wywołująca zapytania, wyznaczająca czas pokonywania odcinka, konwertująca współrzędne geograficzne na typ tekstowy
 // i wypakowująca dane z informacji zwrotnych od API

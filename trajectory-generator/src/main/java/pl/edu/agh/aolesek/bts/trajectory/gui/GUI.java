@@ -5,13 +5,14 @@
  */
 package pl.edu.agh.aolesek.bts.trajectory.gui;
 
-import java.io.File;
-import java.util.List;
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import pl.edu.agh.aolesek.bts.trajectory.analysis.stats.StatsGeneratorApp;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.AppStart;
 import pl.edu.agh.aolesek.bts.trajectory.gui.editprofile.ProfilesList;
+
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
+import java.util.List;
 
 /**
  *

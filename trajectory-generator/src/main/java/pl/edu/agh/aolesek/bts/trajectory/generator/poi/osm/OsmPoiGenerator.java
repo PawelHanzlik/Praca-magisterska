@@ -1,13 +1,7 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.osm;
 
-import java.util.Collection;
-import java.util.Locale;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
-
 import lombok.extern.log4j.Log4j2;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
@@ -22,6 +16,11 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.ISpentTimeProvider;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.osm.model.OsmPoiModel;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender.IPoiRecommender;
 import pl.edu.agh.aolesek.bts.trajectory.generator.retrofit.RetrofitClientFactory;
+
+import java.util.Collection;
+import java.util.Locale;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 //klasa tworząca zapytania do Overpassa.
 // W jej ramach wywoływane są zapytania, ustalany jest format w jakim chcemy uzyskać odpowiedź na zapytanie, tworzone są informacje

@@ -1,17 +1,7 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender;
 
-import java.math.BigInteger;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-
+import com.google.inject.Inject;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
@@ -22,16 +12,17 @@ import org.apache.spark.ml.recommendation.ALSModel;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-
-import com.google.inject.Inject;
-
-import lombok.extern.log4j.Log4j2;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils.WeightedRandomBag;
+
+import java.math.BigInteger;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 //polaczenie ze Sparkiem
 @Log4j2
 public class ALSPoiRecommender implements IPoiRecommender {

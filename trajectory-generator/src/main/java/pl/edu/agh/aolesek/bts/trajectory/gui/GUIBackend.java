@@ -11,6 +11,9 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.GeocodingResult;
+import org.json.JSONObject;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -24,24 +27,6 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.logging.Level;
-import javax.imageio.ImageIO;
-import lombok.extern.log4j.Log4j2;
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 /**
  *

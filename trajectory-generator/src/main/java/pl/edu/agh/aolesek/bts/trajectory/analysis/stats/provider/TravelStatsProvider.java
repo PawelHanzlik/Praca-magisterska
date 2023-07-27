@@ -1,17 +1,5 @@
 package pl.edu.agh.aolesek.bts.trajectory.analysis.stats.provider;
 
-import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import lombok.extern.log4j.Log4j2;
 import pl.edu.agh.aolesek.bts.trajectory.analysis.stats.Messages;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
@@ -21,6 +9,10 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.trajectory.ITrajectory;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePart;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePlan;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
+
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Log4j2
 public class TravelStatsProvider implements IStatsProvider {

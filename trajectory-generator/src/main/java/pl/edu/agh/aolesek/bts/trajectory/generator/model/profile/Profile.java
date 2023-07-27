@@ -1,9 +1,5 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.model.profile;
 
-import java.util.Collection;
-import java.util.Objects;
-import java.util.UUID;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +7,10 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.Level;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.ProfileValidator;
+
+import java.util.Collection;
+import java.util.Objects;
+import java.util.UUID;
 
 //tworzenie obiektów wchodzących w skład profilu.
 @Data

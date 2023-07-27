@@ -1,15 +1,11 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.model.profile;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Stream;
-
-import lombok.extern.log4j.Log4j2;
 
 import static com.google.common.base.Predicates.not;
 

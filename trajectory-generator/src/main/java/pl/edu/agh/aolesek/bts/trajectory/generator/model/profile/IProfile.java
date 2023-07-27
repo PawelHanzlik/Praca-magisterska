@@ -1,10 +1,10 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.model.profile;
 
-import java.util.Collection;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Level;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
+
+import java.util.Collection;
 
 //interfejs udostępniający informacje na temat profilu
 public interface IProfile {

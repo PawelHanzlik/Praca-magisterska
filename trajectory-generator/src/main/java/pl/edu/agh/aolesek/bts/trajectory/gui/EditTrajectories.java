@@ -5,8 +5,9 @@
  */
 package pl.edu.agh.aolesek.bts.trajectory.gui;
 
-import java.util.*;
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *

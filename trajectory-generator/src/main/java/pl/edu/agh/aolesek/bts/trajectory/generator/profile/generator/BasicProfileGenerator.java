@@ -1,14 +1,5 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator;
 
-import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.BASE_NUMBER_OF_VISITED_POIS;
-import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.PREF_TRANSPORT_MODE_FACTOR;
-
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Level;
@@ -19,6 +10,13 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.Preferences;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.Preferences.ActivityTime;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.Profile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.BASE_NUMBER_OF_VISITED_POIS;
+import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.PREF_TRANSPORT_MODE_FACTOR;
 
 //klasa abstrakcyjna generująca zdefiniowane profile przy użyciu interfejsu IProfileGenerator
 public abstract class BasicProfileGenerator implements IProfileGenerator {

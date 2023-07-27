@@ -1,12 +1,12 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.model;
 
-import java.util.Map;
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.IProfile;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
+
+import java.util.Map;
+import java.util.Objects;
 
 //informacje o POI
 @Data

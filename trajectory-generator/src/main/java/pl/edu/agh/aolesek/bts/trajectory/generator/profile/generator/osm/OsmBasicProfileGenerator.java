@@ -1,16 +1,13 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.osm;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import com.google.inject.Inject;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.BasicProfileGenerator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.StartPoints;
+
+import java.util.Arrays;
+import java.util.List;
 
 //modyfikuje dane z profilów, nazwy obiektów i metod poruszania się, aby były zgodne z API opartymi o OSM
 public class OsmBasicProfileGenerator extends BasicProfileGenerator {

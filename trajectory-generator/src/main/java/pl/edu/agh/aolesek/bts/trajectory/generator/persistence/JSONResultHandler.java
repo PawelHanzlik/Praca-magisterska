@@ -1,5 +1,12 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.persistence;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.inject.Inject;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
+import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
+import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.ProfileLogger;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -8,14 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.inject.Inject;
-
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
-import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
-import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.ProfileLogger;
 
 //generowanie pliku json
 public class JSONResultHandler extends AbstractResultHandler {

@@ -1,20 +1,14 @@
 package pl.edu.agh.aolesek.bts.trajectory.analysis.stats.provider;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-
 import pl.edu.agh.aolesek.bts.trajectory.analysis.stats.Messages;
 import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.trajectory.ITrajectory;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class TimeStatsProvider implements IStatsProvider {
 

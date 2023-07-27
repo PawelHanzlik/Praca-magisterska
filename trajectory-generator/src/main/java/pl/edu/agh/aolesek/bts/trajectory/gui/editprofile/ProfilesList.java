@@ -5,9 +5,9 @@
  */
 package pl.edu.agh.aolesek.bts.trajectory.gui.editprofile;
 
-import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
  *

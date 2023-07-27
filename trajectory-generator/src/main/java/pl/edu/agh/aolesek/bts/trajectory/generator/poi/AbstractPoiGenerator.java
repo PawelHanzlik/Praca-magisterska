@@ -1,22 +1,7 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi;
 
-import static com.google.common.collect.ImmutableMap.of;
-import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.CATEGORIES_TO_AVOID_MULTIPLE_VISITS;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import com.google.common.collect.ImmutableMap;
-
 import avro.shaded.com.google.common.collect.Iterables;
+import com.google.common.collect.ImmutableMap;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Level;
@@ -30,6 +15,13 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils.WeightedBagCollector;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils.WeightedRandomBag;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static com.google.common.collect.ImmutableMap.of;
+import static pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters.CATEGORIES_TO_AVOID_MULTIPLE_VISITS;
 
 //klasa abstrakcyjna wykorzystująca interfejs IPoi
 public abstract class AbstractPoiGenerator<T extends IPoi> implements IPoiGenerator<T> {

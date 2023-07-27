@@ -1,11 +1,11 @@
 package pl.edu.agh.aolesek.bts.trajectory.analysis.stats.provider;
 
+import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
-
-import pl.edu.agh.aolesek.bts.trajectory.generator.core.ProfileResult;
 
 public interface IStatsProvider {
 

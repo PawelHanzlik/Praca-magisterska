@@ -1,8 +1,8 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.google;
 
-import java.util.List;
-
 import lombok.Data;
+
+import java.util.List;
 
 //struktura zawierająca informacje o punkcie Poi
 //TODO: Implement opening hours and prices level for Google provider.

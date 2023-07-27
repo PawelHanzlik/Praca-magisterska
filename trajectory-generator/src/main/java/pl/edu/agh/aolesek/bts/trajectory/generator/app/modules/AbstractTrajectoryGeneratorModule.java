@@ -2,8 +2,8 @@ package pl.edu.agh.aolesek.bts.trajectory.generator.app.modules;
 
 import com.google.inject.AbstractModule;
 import lombok.AllArgsConstructor;
-import pl.edu.agh.aolesek.bts.trajectory.generator.app.ErrorHandler;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
+import pl.edu.agh.aolesek.bts.trajectory.generator.app.ErrorHandler;
 
 //struktura zawierająca poniższe informacje
 @AllArgsConstructor

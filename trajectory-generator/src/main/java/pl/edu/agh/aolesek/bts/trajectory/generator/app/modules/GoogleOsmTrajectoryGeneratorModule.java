@@ -9,23 +9,17 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.google.data.provider.GoogleAd
 import pl.edu.agh.aolesek.bts.trajectory.generator.persistence.*;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.*;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.google.GooglePoiGenerator;
-import pl.edu.agh.aolesek.bts.trajectory.generator.poi.osm.OsmPoiGenerator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IOpeningHoursSupplier;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IPoiPlanner;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.google.GooglePoiPlanner;
-import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.osm.OsmOpeningHoursSupplier;
-import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.osm.OsmPoiPlanner;
-import pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender.ALSPoiRecommender;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender.DummyRecommender;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.recommender.IPoiRecommender;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.IPoiRouter;
-import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.google.DirectionsRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.ors.OpenRouteServicePoiRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.IProfileGenerator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.IProfilesProvider;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.ProfilesProvider;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.google.GoogleBasicProfileGenerator;
-import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.osm.OsmBasicProfileGenerator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.validator.ITrajectoryValidator;
 import pl.edu.agh.aolesek.bts.trajectory.generator.validator.TrajectoryTimeValidator;
 

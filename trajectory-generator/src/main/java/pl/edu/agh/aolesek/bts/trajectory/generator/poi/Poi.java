@@ -1,10 +1,10 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi;
 
-import java.util.Map;
-
 import com.google.common.collect.ImmutableMap;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.util.Map;
 
 //struktura zawierająca dane tworzące obiekt Poi, metody do niej są zapewniane przez interfejs IPoi
 @AllArgsConstructor

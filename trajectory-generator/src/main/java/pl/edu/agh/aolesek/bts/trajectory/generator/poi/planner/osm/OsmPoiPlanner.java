@@ -1,14 +1,13 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.osm;
 
-import java.util.Objects;
-
 import com.google.inject.Inject;
-
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.osm.OsmPoiAdapter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IOpeningHoursSupplier;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.PoiPlanner;
+
+import java.util.Objects;
 
 //wyznaczanie średnich prędkości dla środków transportu obsługiwanych przez Overpassa
 public class OsmPoiPlanner extends PoiPlanner<OsmPoiAdapter> {
