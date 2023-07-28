@@ -15,10 +15,13 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IPoiPlanner;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner.IRoutePlan;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.router.IPoiRouter;
 import pl.edu.agh.aolesek.bts.trajectory.generator.profile.generator.IProfilesProvider;
+import pl.edu.agh.aolesek.bts.trajectory.generator.utils.StaticCateroriesEnum;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
@@ -42,6 +45,10 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
     private final Config config;
 
     private long startTime;
+
+    PoiHolder<T> poiHolder = null;
+
+    TrajectoryHistoryOfPoi<T> historyOfPoi = new TrajectoryHistoryOfPoi<>(new HashSet<>(), new HashSet<>());
 
     //przypisanie odziedziczonych klas
     @Inject
@@ -88,13 +95,13 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
         IRoutePlan routePlan = null;
         ITrajectory trajectory = null;
 
-
         try {
             long start = System.currentTimeMillis();
             profileLogger.debug("Generating POIs for profile " + profile.getFullName());
             poisForProfile = poiGenerator.generatePois(profile);
-            System.out.println("KURWAAAAAAAAAAA");
-            System.out.println(poisForProfile);
+            poisForProfile = selectStaticPoiForProfile(poisForProfile);
+            this.historyOfPoi.addPoiToHistory(poisForProfile);
+            System.out.println("HISTORY " + this.historyOfPoi.toString());
             profileLogger.debug(String.format("Generated %d POIs in %d ms", poisForProfile.size(), System.currentTimeMillis() - start));
             poiGenerator.logStats();
 
@@ -118,5 +125,45 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
         final long numberOfGeneratedTrajectories = generatedTrajectories.incrementAndGet();
         log.info(String.format("Generated %d of %d trajectories.", numberOfGeneratedTrajectories, totalTrajectories.get()));
         return new ProfileResult(profile, poisForProfile, routePlan, trajectory);
+    }
+
+    private Collection<PoiHolder<T>> selectStaticPoiForProfile(Collection<PoiHolder<T>> poisForProfile) {
+        String profileName = null;
+        for (PoiHolder poiHolder : poisForProfile){
+            profileName = poiHolder.getProfile().getFullName();
+        }
+        if (profileName != null) {
+            if (profileName.contains("Teenager")) {
+                if (this.poiHolder == null) {
+                    this.poiHolder = selectPoi(poisForProfile, StaticCateroriesEnum.SCHOOL.label);
+                } else {
+                    poisForProfile = swapPois(this.poiHolder, poisForProfile, StaticCateroriesEnum.SCHOOL.label);
+                }
+            }
+        }
+        return poisForProfile;
+    }
+
+    private Collection<PoiHolder<T>> swapPois(PoiHolder<T> poi, Collection<PoiHolder<T>> poisForProfile, String category){
+        Collection<PoiHolder<T>> changedPois = new ArrayList<>();
+        for (PoiHolder<T> p : poisForProfile){
+            if (p.getPoi().getCategory().equals(category)){
+                changedPois.add(poi);
+            }
+            else {
+                changedPois.add(p);
+            }
+        }
+        return changedPois;
+    }
+
+    private PoiHolder<T> selectPoi(Collection<PoiHolder<T>> poisForProfile, String category){
+        PoiHolder<T> selectedPoi = null;
+        for (PoiHolder<T> p : poisForProfile){
+            if (p.getPoi().getCategory().equals(category)){
+                selectedPoi = p;
+            }
+        }
+        return selectedPoi;
     }
 }
