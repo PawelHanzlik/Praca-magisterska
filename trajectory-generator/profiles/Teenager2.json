@@ -7,7 +7,7 @@
         "activityTime": "MORNING",
         "interestFactor": 0.52,
         "priceFactor": 0.21,
-        "walkingSpeedModifier": 1.19
+        "walkingSpeedModifier": 1.09
     },
     "placeOfDeparture": {
         "lon": 19.9611,
@@ -18,36 +18,32 @@
     "id": "pr-02",
     "interests": [
         {
-            "first": "house",
-            "second": 0.45
-        },
-        {
             "first": "school",
-            "second": 0.24
+            "second": 0.5
         },
         {
             "first": "gym",
-            "second": 0.08
+            "second": 0.14
         },
         {
             "first": "shopping_centre",
-            "second": 0.07
+            "second": 0.1
         },
         {
             "first": "shop",
-            "second": 0.05
+            "second": 0.08
         },
         {
             "first": "cafe",
-            "second": 0.04
+            "second": 0.08
         },
         {
             "first": "pitch",
-            "second": 0.03
+            "second": 0.05
         },
         {
             "first": "church",
-            "second": 0.02
+            "second": 0.03
         },
         {
             "first": "hospital",

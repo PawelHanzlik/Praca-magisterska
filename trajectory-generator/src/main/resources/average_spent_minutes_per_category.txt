@@ -46,6 +46,7 @@ store=25
 synagogue=46
 theme_park=50
 town_square=60
+university=360
 viewpoint=20
 zoo=74
 cinema=120

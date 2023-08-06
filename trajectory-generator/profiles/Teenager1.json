@@ -18,40 +18,36 @@
     "id": "pr-01",
     "interests": [
         {
-            "first": "house",
-            "second": 0.28
-        },
-        {
             "first": "school",
-            "second": 0.24
+            "second": 0.4
         },
         {
             "first": "gym",
-            "second": 0.08
+            "second": 0.1
         },
         {
             "first": "shopping_centre",
-            "second": 0.07
+            "second": 0.09
         },
         {
             "first": "shop",
-            "second": 0.06
+            "second": 0.08
         },
         {
             "first": "stadium",
-            "second": 0.05
+            "second": 0.06
         },
         {
             "first": "park",
-            "second": 0.05
+            "second": 0.06
         },
         {
             "first": "cafe",
-            "second": 0.04
+            "second": 0.05
         },
         {
             "first": "pitch",
-            "second": 0.03
+            "second": 0.04
         },
         {
             "first": "marketplace",
@@ -59,11 +55,11 @@
         },
         {
             "first": "church",
-            "second": 0.02
+            "second": 0.03
         },
         {
             "first": "cinema",
-            "second": 0.02
+            "second": 0.03
         },
         {
             "first": "restaurant",

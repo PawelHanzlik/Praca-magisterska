@@ -1,21 +1,67 @@
 {
     "materialStatus": "E",
     "preferences": {
-        "spendTimeModifier": 5,
+        "spendTimeModifier": 1,
         "averageNumberOfPOIs": 4,
-        "distanceFactor": 5,
+        "distanceFactor": 0.25,
         "activityTime": "MORNING",
-        "interestFactor": 5,
-        "priceFactor": 5,
-        "walkingSpeedModifier": 5
+        "interestFactor": 0.48,
+        "priceFactor": 0.27,
+        "walkingSpeedModifier": 1.12
     },
     "placeOfDeparture": {
-        "lon": 4,
-        "lat": 4
+        "lon": 19.9611,
+        "lat": 50.0441
     },
     "fullName": "Student2",
-    "maxRange": 5,
+    "maxRange": 3500,
     "id": "pr-04",
-    "interests": [],
-    "prefferedTransportModes": []
+    "interests": [
+        {
+            "first": "university",
+            "second": 0.5
+        },
+        {
+            "first": "gym",
+            "second": 0.13
+        },
+        {
+            "first": "shopping_centre",
+            "second": 0.1
+        },
+        {
+            "first": "shop",
+            "second": 0.1
+        },
+        {
+            "first": "cafe",
+            "second": 0.09
+        },
+        {
+            "first": "pitch",
+            "second": 0.03
+        },
+        {
+            "first": "church",
+            "second": 0.03
+        },
+        {
+            "first": "hospital",
+            "second": 0.02
+        }
+    ],
+    "prefferedTransportModes": [
+        {
+            "first": "foot-walking",
+            "second": 0.4
+        },
+        {
+            "first": "driving-car",
+            "second": 0.5
+        },
+        {
+            "first": "cycling-regular",
+            "second": 0.1
+        }
+    ]
 }

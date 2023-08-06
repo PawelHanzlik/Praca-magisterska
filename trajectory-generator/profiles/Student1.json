@@ -1,21 +1,87 @@
 {
     "materialStatus": "E",
     "preferences": {
-        "spendTimeModifier": 4,
-        "averageNumberOfPOIs": 4,
-        "distanceFactor": 4,
+        "spendTimeModifier": 1,
+        "averageNumberOfPOIs": 7,
+        "distanceFactor": 0.25,
         "activityTime": "MORNING",
-        "interestFactor": 4,
-        "priceFactor": 4,
-        "walkingSpeedModifier": 4
+        "interestFactor": 0.48,
+        "priceFactor": 0.27,
+        "walkingSpeedModifier": 1.12
     },
     "placeOfDeparture": {
-        "lon": 4,
-        "lat": 4
+        "lon": 19.9611,
+        "lat": 50.0441
     },
     "fullName": "Student1",
-    "maxRange": 4,
+    "maxRange": 4000,
     "id": "pr-03",
-    "interests": [],
-    "prefferedTransportModes": []
+    "interests": [
+        {
+            "first": "university",
+            "second": 0.4
+        },
+        {
+            "first": "gym",
+            "second": 0.08
+        },
+        {
+            "first": "shopping_centre",
+            "second": 0.07
+        },
+        {
+            "first": "shop",
+            "second": 0.06
+        },
+        {
+            "first": "stadium",
+            "second": 0.05
+        },
+        {
+            "first": "park",
+            "second": 0.05
+        },
+        {
+            "first": "cafe",
+            "second": 0.04
+        },
+        {
+            "first": "pitch",
+            "second": 0.03
+        },
+        {
+            "first": "marketplace",
+            "second": 0.03
+        },
+        {
+            "first": "church",
+            "second": 0.02
+        },
+        {
+            "first": "cinema",
+            "second": 0.02
+        },
+        {
+            "first": "restaurant",
+            "second": 0.02
+        },
+        {
+            "first": "hospital",
+            "second": 0.01
+        }
+    ],
+    "prefferedTransportModes": [
+        {
+            "first": "foot-walking",
+            "second": 0.4
+        },
+        {
+            "first": "driving-car",
+            "second": 0.5
+        },
+        {
+            "first": "cycling-regular",
+            "second": 0.1
+        }
+    ]
 }
