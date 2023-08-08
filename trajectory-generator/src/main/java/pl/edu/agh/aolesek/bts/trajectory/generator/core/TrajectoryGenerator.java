@@ -193,6 +193,8 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
                 return StaticCateroriesEnum.SCHOOL.label;
             } else if (profileName.contains("Student")){
                 return StaticCateroriesEnum.UNIVERSITY.label;
+            } else if (profileName.contains("Adult") || profileName.contains("StudentNight")){
+                return StaticCateroriesEnum.COMPANY.label;
             }
         }
         return profileName;

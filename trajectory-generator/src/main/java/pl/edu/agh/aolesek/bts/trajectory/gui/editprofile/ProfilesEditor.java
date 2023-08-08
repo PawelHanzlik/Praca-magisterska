@@ -66,8 +66,8 @@ public class ProfilesEditor extends javax.swing.JFrame {
         dtm2.setRowCount(0);
         jTextField1.setText(jo.get("fullName").toString());
         jTextField2.setText(jo.get("id").toString());
-        //jTextField3.setText(jo.get("materialStatus").toString());
-        //jTextField4.setText(jo.getJSONObject("preferences").get("activityTime").toString());
+        jComboBox1.getModel().setSelectedItem(jo.getJSONObject("preferences").get("activityTime").toString());
+        jComboBox2.getModel().setSelectedItem(jo.get("materialStatus").toString());
         jTextField5.setText(jo.getJSONObject("preferences").get("averageNumberOfPOIs").toString());
         jTextField6.setText(jo.getJSONObject("preferences").get("spendTimeModifier").toString());
         jTextField7.setText(jo.getJSONObject("preferences").get("walkingSpeedModifier").toString());
@@ -77,7 +77,7 @@ public class ProfilesEditor extends javax.swing.JFrame {
         jTextField11.setText(jo.get("maxRange").toString());
         jTextField12.setText(jo.getJSONObject("placeOfDeparture").get("lat").toString());
         jTextField13.setText(jo.getJSONObject("placeOfDeparture").get("lon").toString());
-        if(jo.getJSONArray("interests").length()>0){
+        if(!jo.getJSONArray("interests").isEmpty()){
             String category;
             String interest;
             for(int i=0; i<jo.getJSONArray("interests").length(); i++){
@@ -86,7 +86,7 @@ public class ProfilesEditor extends javax.swing.JFrame {
                 dtm1.addRow(new Object[]{category,interest});
             }
         }
-        if(jo.getJSONArray("prefferedTransportModes").length()>0){
+        if(!jo.getJSONArray("prefferedTransportModes").isEmpty()){
             String mode;
             String interest;
             for(int i=0; i<jo.getJSONArray("prefferedTransportModes").length(); i++){
@@ -331,7 +331,6 @@ public class ProfilesEditor extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MORNING", "MIDDAY", "EVENING" }));
-
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "E", "D", "C", "B", "A" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

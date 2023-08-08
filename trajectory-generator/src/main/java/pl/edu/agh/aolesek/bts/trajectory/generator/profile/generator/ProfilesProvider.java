@@ -62,10 +62,12 @@ public class ProfilesProvider implements IProfilesProvider {
 //                if (profile.getFullName().equals("Teenager2")) {
 //                    profiles.add(profile);
 //                }
-                if (profile.getFullName().equals("Student2")) {
-                   profiles.add(profile);
+//                if (profile.getFullName().equals("Student2")) {
+//                   profiles.add(profile);
+//                }
+                if (profile.getFullName().equals("Adult2")) {
+                    profiles.add(profile);
                 }
-
                 } catch (Exception e) {
                 log.error("Unable to parse profile " + nextFile.getName(), e);
             }
