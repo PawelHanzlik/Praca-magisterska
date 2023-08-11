@@ -2,7 +2,7 @@
     "materialStatus": "E",
     "preferences": {
         "spendTimeModifier": 1,
-        "averageNumberOfPOIs": 7,
+        "averageNumberOfPOIs": 5,
         "distanceFactor": 0.25,
         "activityTime": "MORNING",
         "interestFactor": 0.48,
@@ -51,7 +51,7 @@
         },
         {
             "first": "marketplace",
-            "second": 0.03
+            "second": 0.02
         },
         {
             "first": "church",
@@ -67,6 +67,10 @@
         },
         {
             "first": "hospital",
+            "second": 0.01
+        },
+        {
+            "first": "government",
             "second": 0.01
         }
     ],

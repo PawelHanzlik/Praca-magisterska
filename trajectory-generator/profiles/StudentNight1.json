@@ -2,11 +2,11 @@
     "materialStatus": "D",
     "preferences": {
         "spendTimeModifier": 1,
-        "averageNumberOfPOIs": 4,
-        "distanceFactor": 0.25,
+        "averageNumberOfPOIs": 3,
+        "distanceFactor": 0.17,
         "activityTime": "EVENING",
         "interestFactor": 0.48,
-        "priceFactor": 0.27,
+        "priceFactor": 0.35,
         "walkingSpeedModifier": 1.12
     },
     "placeOfDeparture": {
@@ -14,7 +14,7 @@
         "lat": 50.0441
     },
     "fullName": "StudentNight1",
-    "maxRange": 4500,
+    "maxRange": 4200,
     "id": "pr-11",
     "interests": [
         {
@@ -27,7 +27,7 @@
         },
         {
             "first": "restaurant",
-            "second": 0.2
+            "second": 0.1
         },
         {
             "first": "cinema",
@@ -43,6 +43,10 @@
         },
         {
             "first": "night_club",
+            "second": 0.1
+        },
+        {
+            "first": "house",
             "second": 0.1
         }
     ],

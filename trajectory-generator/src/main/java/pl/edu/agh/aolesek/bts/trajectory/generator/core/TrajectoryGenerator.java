@@ -189,12 +189,16 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
             profileName = poiHolder.getProfile().getFullName();
         }
         if (profileName != null) {
-            if (profileName.contains("Teenager")) {
+            if (profileName.contains("AdultNight")){
+                return StaticCateroriesEnum.SHOP.label;
+            } else if (profileName.contains("Teenager") && !profileName.contains("TeenagerNight")) {
                 return StaticCateroriesEnum.SCHOOL.label;
-            } else if (profileName.contains("Student")){
+            } else if (profileName.contains("Student") && !profileName.contains("StudentNight")){
                 return StaticCateroriesEnum.UNIVERSITY.label;
-            } else if (profileName.contains("Adult") || profileName.contains("StudentNight")){
+            } else if (profileName.contains("Adult") || profileName.equals("StudentNight2")){
                 return StaticCateroriesEnum.COMPANY.label;
+            } else {
+                return StaticCateroriesEnum.HOUSE.label;
             }
         }
         return profileName;

@@ -1,25 +1,25 @@
 {
-    "materialStatus": "D",
+    "materialStatus": "C",
     "preferences": {
-        "spendTimeModifier": 1,
-        "averageNumberOfPOIs": 4,
-        "distanceFactor": 0.25,
+        "spendTimeModifier": 1.05,
+        "averageNumberOfPOIs": 3,
+        "distanceFactor": 0.13,
         "activityTime": "EVENING",
-        "interestFactor": 0.48,
-        "priceFactor": 0.27,
-        "walkingSpeedModifier": 1.12
+        "interestFactor": 0.56,
+        "priceFactor": 0.31,
+        "walkingSpeedModifier": 1.15
     },
     "placeOfDeparture": {
         "lon": 19.9611,
         "lat": 50.0441
     },
     "fullName": "StudentNight2",
-    "maxRange": 4500,
+    "maxRange": 4000,
     "id": "pr-12",
     "interests": [
         {
-            "first": "bar",
-            "second": 0.2
+            "first": "company",
+            "second": 0.4
         },
         {
             "first": "shop",
@@ -30,19 +30,11 @@
             "second": 0.2
         },
         {
+            "first": "bar",
+            "second": 0.1
+        },
+        {
             "first": "cinema",
-            "second": 0.1
-        },
-        {
-            "first": "town_square",
-            "second": 0.1
-        },
-        {
-            "first": "liquor_store",
-            "second": 0.1
-        },
-        {
-            "first": "night_club",
             "second": 0.1
         }
     ],

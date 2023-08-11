@@ -33,6 +33,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
     //interfejs zwracający informacje o tym czy obiekt jest otwarty
     private final IOpeningHoursSupplier openingHoursSupplier;
 
+    private List<String> historyOfTransportModes = new ArrayList<>();
     //konstruktor
     @Inject
     public PoiPlanner(Config parameters, IOpeningHoursSupplier openingHoursSupplier) {
@@ -58,6 +59,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
 
         while (!poisToPlan.isEmpty()) {
             final String transportMode = resolveTransportMode(profile);
+            historyOfTransportModes.add(transportMode);
             final PoiHolder<? extends IPoi> bestPoi = getBestNextPoi(currentPoint, poisToPlan, estimatedTimePointer, transportMode);
             final long secondsSpent = resolveVisitTime(bestPoi);
             final long secondsSpendAtDestination = (long)(secondsSpent * profile.getPreferences().getSpendTimeModifier());
@@ -72,7 +74,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
             final RoutePart routePart = new RoutePart(currentPoint, placeOfDeparture, resolveReturningTransportMode(profile), 0);
             routeParts.add(routePart);
         }
-
+        historyOfTransportModes.clear();
         return new RoutePlan(routeParts, startTime);
     }
 
@@ -101,7 +103,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
     //wyznaczanie środka transportu
     private String resolveTransportMode(IProfile profile) {
         final Collection<Pair<String, Double>> prefferedTransportModes = profile.getPrefferedTransportModes();
-        final String randomValue = RandomUtils.randomValue(prefferedTransportModes);
+        final String randomValue = RandomUtils.randomValue(prefferedTransportModes, historyOfTransportModes);
 
         return randomValue;
     }
@@ -191,7 +193,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
         final Collection<Pair<String, Double>> prefferedTransportModesMultipliedByTransportSpeed = prefferedTransportModes.stream()
             .map(mode -> Pair.create(mode.getFirst(), mode.getSecond() * averageMeterPerSecondSpeedForTransportMode(mode.getFirst())))
             .collect(Collectors.toList());
-        final String randomValue = RandomUtils.randomValue(prefferedTransportModesMultipliedByTransportSpeed);
+        final String randomValue = RandomUtils.randomValue(prefferedTransportModesMultipliedByTransportSpeed, historyOfTransportModes);
         return randomValue;
     }
 }

@@ -1,12 +1,12 @@
 {
-    "materialStatus": "E",
+    "materialStatus": "D",
     "preferences": {
         "spendTimeModifier": 1,
-        "averageNumberOfPOIs": 4,
-        "distanceFactor": 0.27,
+        "averageNumberOfPOIs": 3,
+        "distanceFactor": 0.35,
         "activityTime": "MORNING",
-        "interestFactor": 0.52,
-        "priceFactor": 0.21,
+        "interestFactor": 0.47,
+        "priceFactor": 0.18,
         "walkingSpeedModifier": 1.09
     },
     "placeOfDeparture": {

@@ -15,6 +15,7 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils.WeightedBagCollector;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils.WeightedRandomBag;
+import pl.edu.agh.aolesek.bts.trajectory.generator.utils.StaticCateroriesEnum;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -53,7 +54,7 @@ public abstract class AbstractPoiGenerator<T extends IPoi> implements IPoiGenera
         ratePois(allAvailablePois);
         final Collection<PoiHolder<T>> recommendedPois = recommendPois(profile);
 
-        final Collection<PoiHolder<T>> finalPois = resolveFinalPois(allAvailablePois, recommendedPois, numberOfPois);
+        final Collection<PoiHolder<T>> finalPois = resolveFinalPois(allAvailablePois, recommendedPois, numberOfPois, profile);
 
         pLog.commitOngoingPLog(
             String.format("Completed generating %d POIs for profile %s", finalPois.size(), profile.toString()));
@@ -205,16 +206,25 @@ public abstract class AbstractPoiGenerator<T extends IPoi> implements IPoiGenera
     // MARK: Resolving final POIs
 
     private Collection<PoiHolder<T>> resolveFinalPois(Collection<PoiHolder<T>> availablePois, Collection<PoiHolder<T>> recommendedPois,
-        int plannedNumberOfPois) {
+        int plannedNumberOfPois, IProfile profile) {
         final Map<String, WeightedRandomBag<PoiHolder<T>>> groupedPois = Stream.concat(availablePois.stream(), recommendedPois.stream())
             .collect(
                 Collectors.groupingBy(holder -> holder.getPoi().getCategory(), WeightedBagCollector.create(this::accumulatePoiHolders)));
 
-        final Iterator<String> categoriesCycleIterator = Iterables.cycle(groupedPois.keySet()).iterator();
         final List<PoiHolder<T>> finalPois = new ArrayList<>();
+        String category = "";
+        String staticCategory = "";
+        final List<String> alreadyUsedCategories = new ArrayList<>();
         while (finalPois.size() < plannedNumberOfPois && !areGroupedPoisEmpty(groupedPois)) {
-            final String category = categoriesCycleIterator.next();
+            if (finalPois.isEmpty()){
+                category = pickStaticCategory(profile);
+                staticCategory = category;
+            } else {
+                category = pickCategory(groupedPois, profile, staticCategory, alreadyUsedCategories);
+                System.out.println("Category "+ category);
+            }
 
+            alreadyUsedCategories.add(category);
             final int maxCountOfCategoryElements = config.getStringCollection(CATEGORIES_TO_AVOID_MULTIPLE_VISITS).contains(category)
                 ? config.getInt(Parameters.MAX_POIS_WITH_SAME_CATEGORY_WHEN_AVOIDING)
                 : config.getInt(Parameters.MAX_POIS_WITH_SAME_CATEGORY);
@@ -234,6 +244,29 @@ public abstract class AbstractPoiGenerator<T extends IPoi> implements IPoiGenera
         }
 
         return finalPois;
+    }
+
+    private String pickCategory(Map<String, WeightedRandomBag<PoiHolder<T>>> groupedPois, IProfile profile, String staticCategory,
+                                List<String> alreadyUsedCategories) {
+        List<Pair<String, Double>> accumulatedInterests = new ArrayList<>();
+        Double beforeValue = 0.0;
+        for (Pair<String, Double> interest : profile.getInterests()){
+            accumulatedInterests.add(Pair.create(interest.getFirst(), beforeValue + interest.getSecond()));
+            beforeValue = beforeValue + interest.getSecond();
+        }
+        while (true) {
+            double randomValue = new Random().nextDouble();
+            for (Pair<String, Double> accumulatedInterest : accumulatedInterests) {
+                if (randomValue <= accumulatedInterest.getSecond()) {
+                    if (accumulatedInterest.getFirst().equals(staticCategory) || !groupedPois.containsKey(accumulatedInterest.getFirst()) ||
+                            alreadyUsedCategories.contains(accumulatedInterest.getFirst())) {
+                        break;
+                    } else {
+                        return accumulatedInterest.getFirst();
+                    }
+                }
+            }
+        }
     }
 
     private void accumulatePoiHolders(WeightedRandomBag<PoiHolder<T>> bag, PoiHolder<T> value) {
@@ -270,5 +303,23 @@ public abstract class AbstractPoiGenerator<T extends IPoi> implements IPoiGenera
             135);
 
         return Pair.create(topLeft, bottomRight);
+    }
+
+    private String  pickStaticCategory (IProfile profile){
+        String profileName = profile.getFullName();
+        if (profileName != null) {
+            if (profileName.contains("AdultNight")){
+                return StaticCateroriesEnum.SHOP.label;
+            } else if (profileName.contains("Teenager") && !profileName.contains("TeenagerNight")) {
+                return StaticCateroriesEnum.SCHOOL.label;
+            } else if (profileName.contains("Student") && !profileName.contains("StudentNight")){
+                return StaticCateroriesEnum.UNIVERSITY.label;
+            } else if (profileName.contains("Adult") || profileName.equals("StudentNight2")){
+                return StaticCateroriesEnum.COMPANY.label;
+            } else {
+                return StaticCateroriesEnum.HOUSE.label;
+            }
+        }
+        return StaticCateroriesEnum.SHOP.label;
     }
 }

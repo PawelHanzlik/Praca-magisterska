@@ -86,10 +86,21 @@ public class RandomUtils {
             .collect(Collectors.toList());
     }
 
-    public static <T> T randomValue(Collection<Pair<T, Double>> collection) {
+    public static <T> T randomValue(Collection<Pair<T, Double>> collection, List<String> history) {
         final WeightedRandomBag<T> bag = new WeightedRandomBag<T>();
         collection.forEach(pair -> bag.addEntry(pair.getFirst(), pair.getSecond()));
-        return bag.getRandom();
+        T random = bag.getRandom();
+        if (!history.isEmpty()){
+            String last = history.get(history.size() -1);
+            return changeTransportMode(last, random);
+        } else {
+            return random;
+        }
+    }
+
+    // Pozmieniać środki transportu
+    private static <T> T changeTransportMode(String last, T random){
+        return random;
     }
 
     public static class WeightedRandomBag<T> {

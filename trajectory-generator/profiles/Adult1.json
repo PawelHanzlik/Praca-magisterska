@@ -1,8 +1,8 @@
 {
-    "materialStatus": "E",
+    "materialStatus": "B",
     "preferences": {
         "spendTimeModifier": 1,
-        "averageNumberOfPOIs": 7,
+        "averageNumberOfPOIs": 6,
         "distanceFactor": 0.25,
         "activityTime": "MORNING",
         "interestFactor": 0.48,

@@ -2,7 +2,7 @@
     "materialStatus": "E",
     "preferences": {
         "spendTimeModifier": 1,
-        "averageNumberOfPOIs": 8,
+        "averageNumberOfPOIs": 5,
         "distanceFactor": 0.27,
         "activityTime": "MORNING",
         "interestFactor": 0.52,
