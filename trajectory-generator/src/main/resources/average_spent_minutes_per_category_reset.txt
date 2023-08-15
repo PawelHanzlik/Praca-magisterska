@@ -23,6 +23,7 @@ hospital=300
 jewelry_store=15
 library=30
 liquor_store=10
+mall=60
 marketplace=50
 memorial=10
 monastery=60

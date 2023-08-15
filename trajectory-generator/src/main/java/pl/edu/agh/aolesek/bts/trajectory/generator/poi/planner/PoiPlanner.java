@@ -103,7 +103,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
     //wyznaczanie środka transportu
     private String resolveTransportMode(IProfile profile) {
         final Collection<Pair<String, Double>> prefferedTransportModes = profile.getPrefferedTransportModes();
-        final String randomValue = RandomUtils.randomValue(prefferedTransportModes, historyOfTransportModes);
+        final String randomValue = RandomUtils.randomValue(profile.getFullName(),prefferedTransportModes, historyOfTransportModes, false);
 
         return randomValue;
     }
@@ -193,7 +193,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
         final Collection<Pair<String, Double>> prefferedTransportModesMultipliedByTransportSpeed = prefferedTransportModes.stream()
             .map(mode -> Pair.create(mode.getFirst(), mode.getSecond() * averageMeterPerSecondSpeedForTransportMode(mode.getFirst())))
             .collect(Collectors.toList());
-        final String randomValue = RandomUtils.randomValue(prefferedTransportModesMultipliedByTransportSpeed, historyOfTransportModes);
+        final String randomValue = RandomUtils.randomValue(profile.getFullName(),prefferedTransportModesMultipliedByTransportSpeed, historyOfTransportModes, true);
         return randomValue;
     }
 }

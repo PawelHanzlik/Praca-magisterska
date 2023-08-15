@@ -24,6 +24,7 @@ jewelry_store=15
 library=30
 liquor_store=10
 marketplace=50
+mall=60
 memorial=10
 monastery=60
 monument=10

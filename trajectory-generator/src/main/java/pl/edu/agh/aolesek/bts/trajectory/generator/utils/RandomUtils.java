@@ -86,21 +86,40 @@ public class RandomUtils {
             .collect(Collectors.toList());
     }
 
-    public static <T> T randomValue(Collection<Pair<T, Double>> collection, List<String> history) {
+    public static <T> T randomValue(String profileName, Collection<Pair<T, Double>> collection, List<String> history, Boolean isReturn) {
         final WeightedRandomBag<T> bag = new WeightedRandomBag<T>();
         collection.forEach(pair -> bag.addEntry(pair.getFirst(), pair.getSecond()));
         T random = bag.getRandom();
         if (!history.isEmpty()){
-            String last = history.get(history.size() -1);
-            return changeTransportMode(last, random);
+            return changeTransportMode(profileName, history, random, isReturn);
         } else {
             return random;
         }
     }
 
-    // Pozmieniać środki transportu
-    private static <T> T changeTransportMode(String last, T random){
-        return random;
+    private static <T> T changeTransportMode(String profileName, List<String> history, T random, Boolean isReturn){
+        String last = history.get(history.size() - 1);
+        if (isReturn){
+            if (history.contains("driving-car")) {
+                return (T) "driving-car";
+            }
+            else
+                return random;
+        }
+        else {
+            if (last.equals("cycling-regular")){
+                if (random.equals("foot-walking"))
+                    return random;
+                else
+                    return (T) last;
+            } else if (last.equals("driving-car")){
+                if (random.equals("foot-walking") && !profileName.contains("Adult"))
+                    return random;
+                else
+                    return (T) last;
+            } else
+                return random;
+        }
     }
 
     public static class WeightedRandomBag<T> {

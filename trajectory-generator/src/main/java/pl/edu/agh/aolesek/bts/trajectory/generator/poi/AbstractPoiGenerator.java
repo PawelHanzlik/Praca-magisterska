@@ -221,7 +221,6 @@ public abstract class AbstractPoiGenerator<T extends IPoi> implements IPoiGenera
                 staticCategory = category;
             } else {
                 category = pickCategory(groupedPois, profile, staticCategory, alreadyUsedCategories);
-                System.out.println("Category "+ category);
             }
 
             alreadyUsedCategories.add(category);
