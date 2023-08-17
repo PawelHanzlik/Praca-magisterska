@@ -15,7 +15,7 @@
     },
     "fullName": "AdultNight1",
     "maxRange": 4500,
-    "id": "pr-13",
+    "id": "pr-12",
     "interests": [
         {
             "first": "bar",
@@ -34,7 +34,7 @@
             "second": 0.1
         },
         {
-            "first": "town_square",
+            "first": "square",
             "second": 0.1
         },
         {
@@ -42,7 +42,7 @@
             "second": 0.1
         },
         {
-            "first": "night_club",
+            "first": "nightclub",
             "second": 0.1
         }
     ],

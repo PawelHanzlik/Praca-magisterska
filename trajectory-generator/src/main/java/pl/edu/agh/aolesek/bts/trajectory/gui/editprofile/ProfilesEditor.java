@@ -330,7 +330,7 @@ public class ProfilesEditor extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MORNING", "MIDDAY", "EVENING" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MORNING", "MIDDAY", "EVENING", "MIXED" }));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "E", "D", "C", "B", "A" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

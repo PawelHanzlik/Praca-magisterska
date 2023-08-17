@@ -23,6 +23,7 @@ public class Preferences {
 	public enum ActivityTime {
 		MORNING,
 		MIDDAY,
-		EVENING
+		EVENING,
+		MIXED
 	}
 }

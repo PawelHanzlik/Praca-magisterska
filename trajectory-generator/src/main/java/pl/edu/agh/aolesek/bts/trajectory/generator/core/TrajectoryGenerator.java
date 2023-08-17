@@ -104,7 +104,6 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
             this.historyOfPoi.addPoiToHistory(poisForProfile);
             poisForProfile = exploreOrReturn(poisForProfile);
             this.historyOfPoi.addOccurrences(poisForProfile);
-            System.out.println("HISTORY " + this.historyOfPoi.occurencesToString());
             profileLogger.debug(String.format("Generated %d POIs in %d ms", poisForProfile.size(), System.currentTimeMillis() - start));
             poiGenerator.logStats();
 

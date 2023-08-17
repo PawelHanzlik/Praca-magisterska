@@ -1,7 +1,7 @@
 {
-    "materialStatus": "B",
+    "materialStatus": "A",
     "preferences": {
-        "spendTimeModifier": 1,
+        "spendTimeModifier": 1.03,
         "averageNumberOfPOIs": 6,
         "distanceFactor": 0.25,
         "activityTime": "MORNING",
@@ -14,7 +14,7 @@
         "lat": 50.0441
     },
     "fullName": "Adult1",
-    "maxRange": 4000,
+    "maxRange": 4800,
     "id": "pr-05",
     "interests": [
         {
@@ -22,32 +22,32 @@
             "second": 0.4
         },
         {
+            "first": "shop",
+            "second": 0.12
+        },
+        {
             "first": "gym",
             "second": 0.08
         },
         {
-            "first": "mall",
-            "second": 0.07
-        },
-        {
-            "first": "shop",
+            "first": "cafe",
             "second": 0.06
         },
         {
-            "first": "stadium",
+            "first": "mall",
+            "second": 0.06
+        },
+        {
+            "first": "sports_centre",
+            "second": 0.05
+        },
+        {
+            "first": "restaurant",
             "second": 0.05
         },
         {
             "first": "park",
-            "second": 0.05
-        },
-        {
-            "first": "cafe",
             "second": 0.04
-        },
-        {
-            "first": "pitch",
-            "second": 0.03
         },
         {
             "first": "marketplace",
@@ -55,19 +55,23 @@
         },
         {
             "first": "church",
-            "second": 0.02
+            "second": 0.03
         },
         {
             "first": "cinema",
             "second": 0.02
         },
         {
-            "first": "restaurant",
+            "first": "pharmacy",
             "second": 0.02
         },
         {
             "first": "hospital",
-            "second": 0.01
+            "second": 0.02
+        },
+        {
+            "first": "government",
+            "second": 0.02
         }
     ],
     "prefferedTransportModes": [

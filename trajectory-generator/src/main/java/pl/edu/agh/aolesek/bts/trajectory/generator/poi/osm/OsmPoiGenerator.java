@@ -56,9 +56,18 @@ public class OsmPoiGenerator extends AbstractPoiGenerator<OsmPoiAdapter> {
     @Override
     protected Collection<OsmPoiAdapter> searchPois(String category, IProfile profile) {
         requestsCount.getAndIncrement();
-        final String overpassQuery = createOverpasQueryForSearchByTag(bBoxAsString(profile), category);
+        if (category.equals("liquor_store")){
+            category = "alcohol";
+        }
+        String overpassQuery;
+        if (category.equals("house")){
+            overpassQuery = createOverpasQueryForSearchByTagForHouse(bBoxAsString(profile), category);
+        } else {
+            overpassQuery = createOverpasQueryForSearchByTag(bBoxAsString(profile), category);
+        }
         profile.getLogger().debug(String.format("Overpass query for %s, category %s: %s", profile.getFullName(), category, overpassQuery),
             ImmutableMap.of("query", overpassQuery));
+        String finalCategory = category;
         return api.searchPois(overpassQuery)
             .map(OsmPoiModel::getElements)
             .onErrorReturn(throwable -> {
@@ -67,13 +76,17 @@ public class OsmPoiGenerator extends AbstractPoiGenerator<OsmPoiAdapter> {
             })
             .blockingGet()
             .stream()
-            .map(osmModel -> new OsmPoiAdapter(osmModel, category))
+            .map(osmModel -> new OsmPoiAdapter(osmModel, finalCategory))
             .collect(Collectors.toList());
     }
 
     //oczekiwany format odpowiedzi na zapytanie
     private String createOverpasQueryForSearchByTag(String bbox, String phrase) {
         return String.format("[out:json];node(%s)[~\".*\"~\"%s\"];out;", bbox, phrase);
+    }
+
+    private String createOverpasQueryForSearchByTagForHouse(String bbox, String phrase) {
+        return String.format("[out:json];node(%s)[~\"addr:housenumber\"~\"1\"];out;", bbox, phrase);
     }
 
     private String bBoxAsString(IProfile profile) {

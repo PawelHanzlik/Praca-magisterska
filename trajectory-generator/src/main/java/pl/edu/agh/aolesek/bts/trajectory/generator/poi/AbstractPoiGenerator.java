@@ -153,10 +153,18 @@ public abstract class AbstractPoiGenerator<T extends IPoi> implements IPoiGenera
     }
 
     protected Double resolveInterestingRating(PoiHolder<?> element) {
-        final List<Double> interestRatings = element.getProfile().getInterests().stream()
-            .filter(interest -> Objects.equals(interest.getFirst(), element.getPoi().getCategory()))
-            .map(Pair::getSecond)
-            .collect(Collectors.toList());
+        List<Double> interestRatings;
+        if (element.getPoi().getCategory().equals("alcohol")) {
+            interestRatings = element.getProfile().getInterests().stream()
+                    .filter(interest -> Objects.equals(interest.getFirst(), "liquor_store"))
+                    .map(Pair::getSecond)
+                    .collect(Collectors.toList());
+        } else{
+            interestRatings = element.getProfile().getInterests().stream()
+                    .filter(interest -> Objects.equals(interest.getFirst(), element.getPoi().getCategory()))
+                    .map(Pair::getSecond)
+                    .collect(Collectors.toList());
+        }
 
         if (interestRatings.size() != 1) {
             throw new IllegalArgumentException("Profile in wrong state - one interest with two ratings!");

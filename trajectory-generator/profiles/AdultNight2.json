@@ -1,13 +1,13 @@
 {
-    "materialStatus": "D",
+    "materialStatus": "B",
     "preferences": {
-        "spendTimeModifier": 1,
+        "spendTimeModifier": 1.07,
         "averageNumberOfPOIs": 4,
         "distanceFactor": 0.25,
         "activityTime": "EVENING",
-        "interestFactor": 0.48,
-        "priceFactor": 0.27,
-        "walkingSpeedModifier": 1.12
+        "interestFactor": 0.45,
+        "priceFactor": 0.3,
+        "walkingSpeedModifier": 1.05
     },
     "placeOfDeparture": {
         "lon": 19.9611,
@@ -15,11 +15,11 @@
     },
     "fullName": "AdultNight2",
     "maxRange": 4500,
-    "id": "pr-14",
+    "id": "pr-13",
     "interests": [
         {
-            "first": "bar",
-            "second": 0.2
+            "first": "house",
+            "second": 0.4
         },
         {
             "first": "shop",
@@ -27,33 +27,29 @@
         },
         {
             "first": "restaurant",
-            "second": 0.2
+            "second": 0.15
         },
         {
             "first": "cinema",
             "second": 0.1
         },
         {
-            "first": "town_square",
+            "first": "bar",
             "second": 0.1
         },
         {
-            "first": "liquor_store",
-            "second": 0.1
-        },
-        {
-            "first": "night_club",
-            "second": 0.1
+            "first": "sports_centre",
+            "second": 0.05
         }
     ],
     "prefferedTransportModes": [
         {
             "first": "foot-walking",
-            "second": 0.3
+            "second": 0.2
         },
         {
             "first": "driving-car",
-            "second": 0.7
+            "second": 0.8
         }
     ]
 }

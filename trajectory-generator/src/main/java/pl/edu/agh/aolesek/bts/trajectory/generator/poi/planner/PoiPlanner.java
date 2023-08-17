@@ -13,8 +13,7 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.poi.Poi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
@@ -62,7 +61,8 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
             historyOfTransportModes.add(transportMode);
             final PoiHolder<? extends IPoi> bestPoi = getBestNextPoi(currentPoint, poisToPlan, estimatedTimePointer, transportMode);
             final long secondsSpent = resolveVisitTime(bestPoi);
-            final long secondsSpendAtDestination = (long)(secondsSpent * profile.getPreferences().getSpendTimeModifier());
+            long secondsSpendAtDestination = (long)(secondsSpent * profile.getPreferences().getSpendTimeModifier());
+            secondsSpendAtDestination = checkIfSpentTimeIsProbable(secondsSpendAtDestination, currentPoint, profile, estimatedTimePointer);
             estimatedTimePointer.set(estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination));
 
             final RoutePart routePart = new RoutePart(currentPoint, bestPoi, transportMode, secondsSpendAtDestination);
@@ -78,18 +78,76 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
         return new RoutePlan(routeParts, startTime);
     }
 
+    private long checkIfSpentTimeIsProbable(long secondsSpendAtDestination, PoiHolder<? extends IPoi> currentPoi, IProfile profile,
+                                            AtomicReference<LocalDateTime> estimatedTimePointer) {
+        if (profile.getFullName().contains("Teenager")){
+            if (currentPoi.getPoi().getCategory().equals("school")){
+                if (estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination)
+                        .isAfter(LocalDateTime.of(estimatedTimePointer.get().toLocalDate(), LocalTime.NOON.plusHours(3).plusMinutes(30)))){
+                    Duration dur = Duration.between(estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination),
+                            LocalDateTime.of(estimatedTimePointer.get().toLocalDate(), LocalTime.NOON.plusHours(3).plusMinutes(Math.round(new Random().nextDouble() * 30))));
+                    return secondsSpendAtDestination - dur.getSeconds();
+                }
+            }
+        } else if (profile.getFullName().contains("Student")){
+            if (currentPoi.getPoi().getCategory().equals("university")){
+                if (estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination)
+                        .isAfter(LocalDateTime.of(estimatedTimePointer.get().toLocalDate(), LocalTime.NOON.plusHours(4).plusMinutes(30)))){
+                    Duration dur = Duration.between(estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination),
+                            LocalDateTime.of(estimatedTimePointer.get().toLocalDate(), LocalTime.NOON.plusHours(4).plusMinutes(Math.round(new Random().nextDouble() * 30))));
+                    return secondsSpendAtDestination - dur.getSeconds();
+                }
+            }
+        } else if (profile.getFullName().contains("Adult")){
+            if (currentPoi.getPoi().getCategory().equals("company")){
+                if (estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination)
+                        .isAfter(LocalDateTime.of(estimatedTimePointer.get().toLocalDate(), LocalTime.NOON.plusHours(5).plusMinutes(45)))){
+                    Duration dur = Duration.between(estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination),
+                            LocalDateTime.of(estimatedTimePointer.get().toLocalDate(), LocalTime.NOON.plusHours(5).plusMinutes(Math.round(new Random().nextDouble() * 45))));
+                    return secondsSpendAtDestination - dur.getSeconds();
+                }
+            }
+        }
+        if (!profile.getFullName().contains("Night")) {
+            LocalDateTime maximumTimeOfTrajectories = LocalDateTime.of(estimatedTimePointer.get().toLocalDate(), LocalTime.NOON.plusHours(6).plusMinutes(30));
+            if (estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination).isAfter(maximumTimeOfTrajectories)) {
+                Duration dur = Duration.between(estimatedTimePointer.get().plusSeconds(secondsSpendAtDestination), maximumTimeOfTrajectories);
+                if (dur.compareTo(Duration.ofSeconds(600)) < 0) {
+                    if (dur.compareTo(Duration.ofSeconds(300)) < 0)
+                        dur = dur.plusSeconds(500);
+                    else
+                        dur = dur.plusSeconds(300);
+                }
+                return secondsSpendAtDestination - dur.getSeconds();
+            } else
+                return secondsSpendAtDestination;
+        }
+        return secondsSpendAtDestination;
+    }
+
     //wyznaczanie momentu rozpoczęcia podróży - godzina jest losowana dla wybranej w konfiguracji pory dnia
-    private LocalDateTime resolveStartTime(IProfile profile) {
+    private LocalDateTime  resolveStartTime(IProfile profile) {
         final LocalDate startDate = config.resolveSimulationStartTime().toLocalDate();
         final ActivityTime activityTime = profile.getPreferences().getActivityTime();
         int rnd = new Random().nextInt(90);
         //sonarqube sugestia
+        int weekendDelay = 0;
+        if (startDate.getDayOfWeek().equals(DayOfWeek.SATURDAY) || startDate.getDayOfWeek().equals(DayOfWeek.SUNDAY))
+            weekendDelay = 2;
         if (ActivityTime.MORNING.equals(activityTime)) {
-            return startDate.atStartOfDay().plusHours(6).plusMinutes(rnd);
+            return startDate.atStartOfDay().plusHours(6 + weekendDelay).plusMinutes(rnd);
         } else if (ActivityTime.MIDDAY.equals(activityTime)) {
-            return startDate.atStartOfDay().plusHours(12).plusMinutes(rnd);
+            return startDate.atStartOfDay().plusHours(12 + weekendDelay).plusMinutes(rnd);
+        } else if (ActivityTime.EVENING.equals(activityTime)){
+            return startDate.atStartOfDay().plusHours(17 + weekendDelay).plusMinutes(rnd);
         } else {
-            return startDate.atStartOfDay().plusHours(17).plusMinutes(rnd);
+            int random = new Random().nextInt(4);
+            switch (random){
+                case 1 : return startDate.atStartOfDay().plusHours(6 + weekendDelay).plusMinutes(rnd);
+                case 2 : return startDate.atStartOfDay().plusHours(12 + weekendDelay).plusMinutes(rnd);
+                case 3 : return startDate.atStartOfDay().plusHours(17 + weekendDelay).plusMinutes(rnd);
+                default: return startDate.atStartOfDay().plusHours(10 + weekendDelay).plusMinutes(rnd);
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 {
-    "materialStatus": "E",
+    "materialStatus": "C",
     "preferences": {
         "spendTimeModifier": 1,
         "averageNumberOfPOIs": 3,
@@ -35,7 +35,7 @@
         },
         {
             "first": "cafe",
-            "second": 0.09
+            "second": 0.07
         },
         {
             "first": "pitch",
@@ -47,6 +47,10 @@
         },
         {
             "first": "hospital",
+            "second": 0.02
+        },
+        {
+            "first": "library",
             "second": 0.02
         }
     ],

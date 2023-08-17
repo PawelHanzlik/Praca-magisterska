@@ -1,21 +1,51 @@
 {
-    "materialStatus": "E",
+    "materialStatus": "B",
     "preferences": {
-        "spendTimeModifier": 4,
-        "averageNumberOfPOIs": 4,
-        "distanceFactor": 4,
+        "spendTimeModifier": 1,
+        "averageNumberOfPOIs": 3,
+        "distanceFactor": 0.38,
         "activityTime": "MORNING",
-        "interestFactor": 4,
-        "priceFactor": 4,
-        "walkingSpeedModifier": 4
+        "interestFactor": 0.42,
+        "priceFactor": 0.18,
+        "walkingSpeedModifier": 1
     },
     "placeOfDeparture": {
-        "lon": 3,
-        "lat": 3
+        "lon": 19.9611,
+        "lat": 50.0441
     },
     "fullName": "Senior2",
-    "maxRange": 4,
-    "id": "pr-10",
-    "interests": [],
-    "prefferedTransportModes": []
+    "maxRange": 3000,
+    "id": "pr-09",
+    "interests": [
+        {
+            "first": "shop",
+            "second": 0.31
+        },
+        {
+            "first": "house",
+            "second": 0.25
+        },
+        {
+            "first": "hospital",
+            "second": 0.21
+        },
+        {
+            "first": "pharmacy",
+            "second": 0.18
+        },
+        {
+            "first": "government",
+            "second": 0.05
+        }
+    ],
+    "prefferedTransportModes": [
+        {
+            "first": "foot-walking",
+            "second": 0.15
+        },
+        {
+            "first": "driving-car",
+            "second": 0.85
+        }
+    ]
 }

@@ -1,20 +1,20 @@
 {
-    "materialStatus": "E",
+    "materialStatus": "B",
     "preferences": {
-        "spendTimeModifier": 1,
-        "averageNumberOfPOIs": 7,
+        "spendTimeModifier": 1.05,
+        "averageNumberOfPOIs": 4,
         "distanceFactor": 0.25,
         "activityTime": "MORNING",
         "interestFactor": 0.48,
         "priceFactor": 0.27,
-        "walkingSpeedModifier": 1.12
+        "walkingSpeedModifier": 1.09
     },
     "placeOfDeparture": {
         "lon": 19.9611,
         "lat": 50.0441
     },
     "fullName": "Adult2",
-    "maxRange": 3500,
+    "maxRange": 3800,
     "id": "pr-06",
     "interests": [
         {
@@ -38,7 +38,7 @@
             "second": 0.09
         },
         {
-            "first": "pitch",
+            "first": "government",
             "second": 0.03
         },
         {
