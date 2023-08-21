@@ -3,6 +3,7 @@ package pl.edu.agh.aolesek.bts.trajectory.generator.poi.planner;
 import com.google.inject.Inject;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;
+import pl.edu.agh.aolesek.bts.trajectory.generator.core.TrajectoryHistoryOfPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Pair;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.PoiHolder;
 import pl.edu.agh.aolesek.bts.trajectory.generator.model.Point;
@@ -42,7 +43,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
 
     //planowanie trasy
     @Override
-    public RoutePlan planRoute(Collection<PoiHolder<T>> poisForProfile) {
+    public RoutePlan planRoute(Collection<PoiHolder<T>> poisForProfile, TrajectoryHistoryOfPoi<T> historyOfPoi) {
         if (poisForProfile.isEmpty()) {
             throw new IllegalArgumentException("You have to supply at least 1 poi for planner!");
         }
@@ -60,6 +61,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
             final String transportMode = resolveTransportMode(profile);
             historyOfTransportModes.add(transportMode);
             final PoiHolder<? extends IPoi> bestPoi = getBestNextPoi(currentPoint, poisToPlan, estimatedTimePointer, transportMode);
+            historyOfPoi.addToOrderOfPoi(bestPoi.getPoi().getCategory(), poisToPlan);
             final long secondsSpent = resolveVisitTime(bestPoi);
             long secondsSpendAtDestination = (long)(secondsSpent * profile.getPreferences().getSpendTimeModifier());
             secondsSpendAtDestination = checkIfSpentTimeIsProbable(secondsSpendAtDestination, currentPoint, profile, estimatedTimePointer);
@@ -74,6 +76,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
             final RoutePart routePart = new RoutePart(currentPoint, placeOfDeparture, resolveReturningTransportMode(profile), 0);
             routeParts.add(routePart);
         }
+        historyOfPoi.addReverseToOrderOfPoi();
         historyOfTransportModes.clear();
         return new RoutePlan(routeParts, startTime);
     }
@@ -178,6 +181,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
             .filter(poi -> filterOutClosedPoi(ref, poi, estimatedTimePointer, transportMode)).findFirst();
         final Optional<PoiHolder<? extends IPoi>> nearestPoi = nearestPois.stream().findFirst();
 
+        // Tutaj zrobic cos z tymi czasami poi
         if (nearestOpenedPoi.isPresent()) {
             final PoiHolder<? extends IPoi> poi = nearestOpenedPoi.get();
             allPois.remove(poi);

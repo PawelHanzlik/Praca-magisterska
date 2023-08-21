@@ -1,0 +1,87 @@
+{
+    "materialStatus": "C",
+    "preferences": {
+        "spendTimeModifier": 1,
+        "averageNumberOfPOIs": 7,
+        "distanceFactor": 0.25,
+        "activityTime": "MIDDAY",
+        "interestFactor": 0.56,
+        "priceFactor": 0.19,
+        "walkingSpeedModifier": 1.09
+    },
+    "placeOfDeparture": {
+        "lon": 19.9611,
+        "lat": 50.0441
+    },
+    "fullName": "Weekend1",
+    "maxRange": 5500,
+    "id": "pr-14",
+    "interests": [
+        {
+            "first": "shop",
+            "second": 0.15
+        },
+        {
+            "first": "park",
+            "second": 0.12
+        },
+        {
+            "first": "gym",
+            "second": 0.11
+        },
+        {
+            "first": "house",
+            "second": 0.1
+        },
+        {
+            "first": "mall",
+            "second": 0.09
+        },
+        {
+            "first": "restaurant",
+            "second": 0.09
+        },
+        {
+            "first": "sports_centre",
+            "second": 0.08
+        },
+        {
+            "first": "cafe",
+            "second": 0.07
+        },
+        {
+            "first": "museum",
+            "second": 0.06
+        },
+        {
+            "first": "pitch",
+            "second": 0.04
+        },
+        {
+            "first": "marketplace",
+            "second": 0.03
+        },
+        {
+            "first": "church",
+            "second": 0.03
+        },
+        {
+            "first": "cinema",
+            "second": 0.03
+        }
+    ],
+    "prefferedTransportModes": [
+        {
+            "first": "foot-walking",
+            "second": 0.5
+        },
+        {
+            "first": "driving-car",
+            "second": 0.35
+        },
+        {
+            "first": "cycling-regular",
+            "second": 0.15
+        }
+    ]
+}

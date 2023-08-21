@@ -5,10 +5,8 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.PoiHolder;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class TrajectoryHistoryOfPoi <T extends IPoi> {
 
@@ -19,12 +17,15 @@ public class TrajectoryHistoryOfPoi <T extends IPoi> {
 
     List<Pair<PoiHolder<T>, Integer>> numberOfOccurrences;
 
+    Map<String, Pair<Set<String>, Set<String>>> orderOfPois;
+
     public TrajectoryHistoryOfPoi(Set<PoiHolder<T>> poiHistory, Set<String> poiNames, Set<Pair<String, String>> poiNamesAndCategories,
-                                  List<Pair<PoiHolder<T>, Integer>> numberOfOccurrences) {
+                                  List<Pair<PoiHolder<T>, Integer>> numberOfOccurrences, Map<String, Pair<Set<String>, Set<String>>> orderOfPois) {
         this.poiHistory = poiHistory;
         this.poiNames = poiNames;
         this.poiNamesAndCategories = poiNamesAndCategories;
         this.numberOfOccurrences = numberOfOccurrences;
+        this.orderOfPois = orderOfPois;
     }
 
     private void addPoiToHistory(PoiHolder<T> poiToAdd){
@@ -129,5 +130,41 @@ public class TrajectoryHistoryOfPoi <T extends IPoi> {
             sb.append(numberOfOccurrence.getFirst().getPoi().getName()).append(" ").append(numberOfOccurrence.getSecond()).append(" ");
         }
         return sb.toString();
+    }
+
+    public void addToOrderOfPoi(String category, HashSet<PoiHolder<? extends IPoi>> poisLeft){
+        if (this.orderOfPois.containsKey(category)){
+            for (PoiHolder<? extends IPoi> poi : poisLeft) {
+                this.orderOfPois.get(category).getSecond().add(poi.getPoi().getCategory());
+            }
+        }
+        else{
+            Set<String> emptySet = new HashSet<>();
+            this.orderOfPois.put(category, Pair.create(emptySet, poisLeft.stream().map(PoiHolder::getPoi).map(IPoi::getCategory).collect(Collectors.toSet())));
+        }
+    }
+
+    public void printOrderOfPoi(){
+        for (Map.Entry<String, Pair<Set<String>, Set<String>>> entry : this.orderOfPois.entrySet()){
+            System.out.println(" Order of poi " + entry.getKey() + " przed " + Arrays.toString(entry.getValue().getFirst().toArray()) + " po" +
+                    Arrays.toString(entry.getValue().getSecond().toArray()));
+        }
+    }
+
+    public void addReverseToOrderOfPoi(){
+        for (Map.Entry<String, Pair<Set<String>, Set<String>>> entry : this.orderOfPois.entrySet()){
+            for (String category : entry.getValue().getSecond()){
+                if (this.orderOfPois.containsKey(category)){
+                    this.orderOfPois.get(category).getFirst().add(entry.getKey());
+                } else {
+                    Set<String> emptySet = new HashSet<>();
+                    this.orderOfPois.put(category, Pair.create(new HashSet<>(){
+                        {
+                            add(entry.getKey());
+                        }
+                    }, emptySet));
+                }
+            }
+        }
     }
 }

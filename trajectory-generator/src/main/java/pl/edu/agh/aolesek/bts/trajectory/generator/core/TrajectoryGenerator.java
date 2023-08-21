@@ -19,10 +19,7 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.utils.ProbabilityUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.StaticCateroriesEnum;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
@@ -49,7 +46,7 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
 
     PoiHolder<T> poiHolder = null;
 
-    TrajectoryHistoryOfPoi<T> historyOfPoi = new TrajectoryHistoryOfPoi<>(new HashSet<>(), new HashSet<>(), new HashSet<>(), new ArrayList<>());
+    TrajectoryHistoryOfPoi<T> historyOfPoi = new TrajectoryHistoryOfPoi<>(new HashSet<>(), new HashSet<>(), new HashSet<>(), new ArrayList<>(), new HashMap<>());
 
     //przypisanie odziedziczonych klas
     @Inject
@@ -109,7 +106,7 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
 
             start = System.currentTimeMillis();
             profileLogger.debug("Planning route for profile " + profile.getFullName());
-            routePlan = poiPlanner.planRoute(poisForProfile);
+            routePlan = poiPlanner.planRoute(poisForProfile, historyOfPoi);
             profileLogger
                     .debug(String.format("Planned route that starts at %s and consists of %d parts after %d ms.", routePlan.getStartTime(),
                             routePlan.getParts().size(), System.currentTimeMillis() - start));
@@ -188,7 +185,7 @@ public class TrajectoryGenerator<T extends IPoi> implements ITrajectoryGenerator
             profileName = poiHolder.getProfile().getFullName();
         }
         if (profileName != null) {
-            if (profileName.contains("AdultNight")){
+            if (profileName.contains("AdultNight") || profileName.contains("Weekend")){
                 return StaticCateroriesEnum.SHOP.label;
             } else if (profileName.contains("Teenager") && !profileName.contains("TeenagerNight")) {
                 return StaticCateroriesEnum.SCHOOL.label;

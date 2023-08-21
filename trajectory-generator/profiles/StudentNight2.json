@@ -23,11 +23,11 @@
         },
         {
             "first": "shop",
-            "second": 0.2
+            "second": 0.15
         },
         {
             "first": "restaurant",
-            "second": 0.2
+            "second": 0.15
         },
         {
             "first": "bar",
@@ -35,6 +35,10 @@
         },
         {
             "first": "cinema",
+            "second": 0.1
+        },
+        {
+            "first": "house",
             "second": 0.1
         }
     ],
