@@ -167,4 +167,8 @@ public class TrajectoryHistoryOfPoi <T extends IPoi> {
             }
         }
     }
+
+    public Map<String, Pair<Set<String>, Set<String>>> getOrderOfPois() {
+        return orderOfPois;
+    }
 }

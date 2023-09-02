@@ -1,6 +1,5 @@
 package pl.edu.agh.aolesek.bts.trajectory.generator.poi;
 
-import avro.shaded.com.google.common.collect.Iterables;
 import com.google.common.collect.ImmutableMap;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Config;
 import pl.edu.agh.aolesek.bts.trajectory.generator.app.Parameters;

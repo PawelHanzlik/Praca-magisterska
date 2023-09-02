@@ -12,6 +12,7 @@ import pl.edu.agh.aolesek.bts.trajectory.generator.model.profile.Preferences.Act
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.IPoi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.poi.Poi;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.GeoUtils;
+import pl.edu.agh.aolesek.bts.trajectory.generator.utils.ProbabilityUtils;
 import pl.edu.agh.aolesek.bts.trajectory.generator.utils.RandomUtils;
 
 import java.time.*;
@@ -60,7 +61,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
         while (!poisToPlan.isEmpty()) {
             final String transportMode = resolveTransportMode(profile);
             historyOfTransportModes.add(transportMode);
-            final PoiHolder<? extends IPoi> bestPoi = getBestNextPoi(currentPoint, poisToPlan, estimatedTimePointer, transportMode);
+            final PoiHolder<? extends IPoi> bestPoi = getBestNextPoi(currentPoint, poisToPlan, estimatedTimePointer, transportMode, historyOfPoi);
             historyOfPoi.addToOrderOfPoi(bestPoi.getPoi().getCategory(), poisToPlan);
             final long secondsSpent = resolveVisitTime(bestPoi);
             long secondsSpendAtDestination = (long)(secondsSpent * profile.getPreferences().getSpendTimeModifier());
@@ -172,7 +173,7 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
     //wyznaczanie poi
     private PoiHolder<? extends IPoi> getBestNextPoi(PoiHolder<? extends IPoi> ref, Collection<PoiHolder<? extends IPoi>> allPois,
         AtomicReference<LocalDateTime> estimatedTimePointer,
-        String transportMode) {
+        String transportMode, TrajectoryHistoryOfPoi<T> historyOfPoi) {
         final List<PoiHolder<? extends IPoi>> nearestPois = allPois.stream()
             .sorted((poiA, poiB) -> compareByDistanceToRef(ref, poiA, poiB))
             .collect(Collectors.toList());
@@ -181,8 +182,14 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
             .filter(poi -> filterOutClosedPoi(ref, poi, estimatedTimePointer, transportMode)).findFirst();
         final Optional<PoiHolder<? extends IPoi>> nearestPoi = nearestPois.stream().findFirst();
 
-        // Tutaj zrobic cos z tymi czasami poi
-        if (nearestOpenedPoi.isPresent()) {
+        if (ProbabilityUtils.probabilityOfStickToDailyRoutine(historyOfPoi.getOrderOfPois())){
+            final PoiHolder<? extends IPoi> poi = getPoisInRoutineOrder(allPois, historyOfPoi);
+            allPois.remove(poi);
+            final long seconds = estimateTravelTimeSeconds(ref, poi, transportMode);
+            estimatedTimePointer.set(estimatedTimePointer.get().plusSeconds(seconds));
+            return poi;
+        }
+        else if (nearestOpenedPoi.isPresent()) {
             final PoiHolder<? extends IPoi> poi = nearestOpenedPoi.get();
             allPois.remove(poi);
             final long seconds = estimateTravelTimeSeconds(ref, poi, transportMode);
@@ -201,6 +208,33 @@ public abstract class PoiPlanner<T extends IPoi> implements IPoiPlanner<T> {
         }
     }
 
+    private PoiHolder<? extends IPoi> getPoisInRoutineOrder(Collection<PoiHolder<? extends IPoi>> allPois, TrajectoryHistoryOfPoi<T> historyOfPoi) {
+        PoiHolder<? extends IPoi> poi = allPois.iterator().next();
+        Set<String> categories = allPois.stream().map(PoiHolder::getPoi).map(IPoi::getCategory).collect(Collectors.toSet());
+        Map<String, Pair<Set<String>, Set<String>>> orderOfPois = historyOfPoi.getOrderOfPois();
+        for (PoiHolder<? extends IPoi> p : allPois){
+            if (orderOfPois.containsKey(p.getPoi().getCategory())){
+                if (!orderOfPois.get(p.getPoi().getCategory()).getFirst().isEmpty()){
+                    for (String s : orderOfPois.get(p.getPoi().getCategory()).getFirst()){
+                        if (categories.contains(s)){
+                            poi = getPoiByCategory(allPois, s);
+                            categories.remove(p.getPoi().getCategory());
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return poi;
+    }
+
+    private PoiHolder<? extends IPoi> getPoiByCategory(Collection<PoiHolder<? extends IPoi>> allPois, String category){
+        for (PoiHolder<? extends IPoi> p : allPois){
+            if (p.getPoi().getCategory().equals(category))
+                return p;
+        }
+        return allPois.iterator().next();
+    }
     //porównywanie długości odcinków z danymi współrzędnymi ich końców
     private int compareByDistanceToRef(PoiHolder<?> ref, PoiHolder<?> poiA, PoiHolder<?> poiB) {
         final double fromAToRef = GeoUtils.distance(poiA.getPoi().getLat(), poiA.getPoi().getLon(),

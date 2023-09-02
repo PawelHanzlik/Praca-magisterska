@@ -59,9 +59,9 @@ public class ProfilesProvider implements IProfilesProvider {
                 log.info("Parsing profile " + nextFile.getName());
                 IProfile profile = gson.fromJson(reader, IProfile.class);
                 System.out.println(profile.getFullName());
-//                if (profile.getFullName().equals("Teenager2")) {
-//                    profiles.add(profile);
-//                }
+                if (profile.getFullName().equals("Teenager2")) {
+                    profiles.add(profile);
+                }
 //                if (profile.getFullName().equals("Student2")) {
 //                   profiles.add(profile);
 //                }
@@ -74,9 +74,9 @@ public class ProfilesProvider implements IProfilesProvider {
 //                if (profile.getFullName().equals("Senior2")) {
 //                    profiles.add(profile);
 //                }
-                if (profile.getFullName().equals("Weekend2")) {
-                    profiles.add(profile);
-                }
+//                if (profile.getFullName().equals("Weekend2")) {
+//                    profiles.add(profile);
+//                }
                 } catch (Exception e) {
                 log.error("Unable to parse profile " + nextFile.getName(), e);
             }

@@ -179,12 +179,12 @@ public class GUI extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(new JFrame(), "Generator statystyk działa tylko dla niepustych pilików z rozszerzeniem .json", "Format pliku",JOptionPane.ERROR_MESSAGE);
         FileNameExtensionFilter fnef = new FileNameExtensionFilter("TEXT FILES", "json");
         fileChooser.setFileFilter(fnef);
-        String dir = System.getProperty("user.dir") + "/output";
+        String dir = "D:\\2023-03";
         fileChooser.setCurrentDirectory(new File(dir));
         int value = fileChooser.showOpenDialog(this);
         //zwracanie błędu przy wyborze pliku .json.log.json
         if (value == JFileChooser.APPROVE_OPTION) {
-            String name = "output/" + fileChooser.getSelectedFile().getName();
+            String name = "D:\\2023-03\\" + fileChooser.getSelectedFile().getName();
             if(name.contains(".json.log.json"))
             {
                 JOptionPane.showMessageDialog(new JFrame(), "Select file .json instead of .json.log.json", "Wrong extension",JOptionPane.ERROR_MESSAGE);
@@ -208,12 +208,12 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         FileNameExtensionFilter fnef = new FileNameExtensionFilter("TEXT FILES", "csv");
         fileChooser.setFileFilter(fnef);
-        String dir = System.getProperty("user.dir") + "/output";
+        String dir = "D:\\2023-03\\";
         fileChooser.setCurrentDirectory(new File(dir));
         int value = fileChooser.showOpenDialog(this);
         //zwracanie błędu przy wyborze pliku .json.log.json
         if (value == JFileChooser.APPROVE_OPTION) {
-            String fileName = "output/" + fileChooser.getSelectedFile().getName();
+            String fileName = "D:\\2023-03\\" + fileChooser.getSelectedFile().getName();
             List<String[]> lines = GUIBackend.readTrajectories(fileName);
             if(lines.size()>1){ //pomijamy puste pliki lub te z samą linijką nagłówkową
                 Visualisation visualisation = new Visualisation(lines);
