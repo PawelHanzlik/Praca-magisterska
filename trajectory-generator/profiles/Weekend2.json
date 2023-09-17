@@ -18,16 +18,16 @@
     "id": "pr-15",
     "interests": [
         {
+            "first": "house",
+            "second": 0.39
+        },
+        {
             "first": "shop",
             "second": 0.15
         },
         {
             "first": "park",
             "second": 0.12
-        },
-        {
-            "first": "house",
-            "second": 0.1
         },
         {
             "first": "mall",
